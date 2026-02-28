@@ -3,77 +3,159 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>BroteGastro – Juego (demo)</title>
+  <title>BroteGastro – Juego (modo individual)</title>
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 16px;line-height:1.45}
-    .card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:14px 0}
-    code{background:#f6f6f6;padding:2px 6px;border-radius:6px}
-    a{color:#0b5fff}
-    select,button{font-size:16px;padding:8px 10px}
-    button{cursor:pointer}
-    pre{background:#0b1020;color:#e8eefc;padding:12px;border-radius:12px;overflow:auto}
-    .muted{color:#666}
+    :root{ --bg:#0b1020; --card:#111a33; --text:#e8eefc; --muted:#b9c4e6; --border:rgba(255,255,255,.12); --accent:#5aa7ff; }
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:linear-gradient(180deg,#0b1020,#0a0f1d);color:var(--text)}
+    a{color:var(--accent)}
+    .wrap{display:grid;grid-template-columns:320px 1fr;min-height:100vh}
+    .sidebar{border-right:1px solid var(--border);padding:18px;background:rgba(255,255,255,.02)}
+    .main{padding:22px}
+    .title{font-size:22px;margin:0 0 6px 0}
+    .small{color:var(--muted);font-size:13px}
+    .card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:14px;margin:12px 0}
+    .card h3{margin:0 0 10px 0;font-size:16px}
+    .phases{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+    .phaseBtn{all:unset;cursor:pointer;border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:rgba(255,255,255,.03)}
+    .phaseBtn.active{outline:2px solid rgba(90,167,255,.35);background:rgba(90,167,255,.08)}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .pill{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--border);border-radius:999px;padding:6px 10px;font-size:13px;background:rgba(255,255,255,.03)}
+    .btn{cursor:pointer;border:1px solid var(--border);border-radius:10px;padding:8px 10px;background:rgba(255,255,255,.04);color:var(--text)}
+    .btn.primary{border-color:rgba(90,167,255,.55);background:rgba(90,167,255,.12)}
+    .btn.danger{border-color:rgba(255,100,120,.6);background:rgba(255,100,120,.12)}
+    .btn:disabled{opacity:.45;cursor:not-allowed}
+    .actions{display:flex;flex-direction:column;gap:10px}
+    .action{border:1px solid var(--border);border-radius:12px;padding:10px;background:rgba(0,0,0,.15)}
+    .actionTop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .actionName{font-weight:650}
+    .actionNote{color:var(--muted);font-size:13px;margin-top:6px}
+    .kv{display:grid;grid-template-columns:160px 1fr;gap:8px;font-size:14px}
+    pre{white-space:pre-wrap;background:rgba(0,0,0,.25);border:1px solid var(--border);padding:10px;border-radius:12px;overflow:auto}
+    textarea{width:100%;min-height:120px;border-radius:12px;border:1px solid var(--border);background:rgba(0,0,0,.18);color:var(--text);padding:10px;font-size:14px}
+    table{border-collapse:collapse;width:100%;font-size:13px}
+    th,td{border:1px solid var(--border);padding:6px 8px;vertical-align:top}
+    th{background:rgba(255,255,255,.05)}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:980px){ .wrap{grid-template-columns:1fr} .sidebar{border-right:none;border-bottom:1px solid var(--border)} .split{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
-  <h1>BroteGastro – Modo individual (v3)</h1>
-  <p class="muted">Demo público del caso (ficcional) y datasets para el juego de investigación de brotes.</p>
+<div class="wrap">
+  <aside class="sidebar">
+    <h1 class="title">BroteGastro</h1>
+    <div class="small">Modo individual · investigación de brotes por fases · sin backend</div>
 
-  <div class="card">
-    <h2>Archivos del juego</h2>
-    <ul>
-      <li><a href="./game_config_individual.json">game_config_individual.json</a></li>
-      <li><a href="./clue_cards.json">clue_cards.json</a></li>
-      <li><a href="./answer_key.json">answer_key.json</a></li>
-      <li><a href="./expected_2x2_results.json">expected_2x2_results.json</a></li>
-      <li><a href="./calculator_spec.md">calculator_spec.md</a></li>
-    </ul>
-  </div>
+    <div class="card">
+      <h3>Estado</h3>
+      <div class="row">
+        <span class="pill">HE restantes: <strong id="heLeft">–</strong></span>
+        <span class="pill">HE usadas: <strong id="heUsed">–</strong></span>
+        <span class="pill">Fase: <strong id="phaseLabel">–</strong></span>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <button class="btn danger" id="resetBtn">Reiniciar</button>
+        <button class="btn" id="exportBtn">Exportar bitácora</button>
+      </div>
+    </div>
 
-  <div class="card">
-    <h2>Datos (CSV)</h2>
-    <ul>
-      <li><a href="./data/linelist_cases.csv">linelist_cases.csv</a></li>
-      <li><a href="./data/epi_curve.csv">epi_curve.csv</a></li>
-      <li><a href="./data/district_counts.csv">district_counts.csv</a></li>
-      <li><a href="./data/exposure_summary_cases.csv">exposure_summary_cases.csv</a></li>
-      <li><a href="./data/attendee_survey_cases_controls.csv">attendee_survey_cases_controls.csv</a></li>
-      <li><a href="./data/2x2_beverage_tent.csv">2x2_beverage_tent.csv</a></li>
-    </ul>
-  </div>
+    <div class="card">
+      <h3>Fases</h3>
+      <div class="phases" id="phaseList"></div>
+    </div>
 
-  <div class="card">
-    <h2>Prueba en línea: Calculadora 2x2 (casos vs controles)</h2>
-    <p>Esto lee <code>data/attendee_survey_cases_controls.csv</code> y calcula OR con corrección si hay ceros (Haldane–Anscombe).</p>
+    <div class="card">
+      <h3>Archivos</h3>
+      <div class="small">
+        Este juego lee automáticamente:
+        <ul>
+          <li><code>game_config_individual.json</code></li>
+          <li><code>clue_cards.json</code></li>
+          <li><code>data/*.csv</code></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
 
-    <label for="exp"><strong>Exposición:</strong></label>
-    <select id="exp">
-      <option value="beverage_tent_consumption|Sí">Carpa/barra (beverage_tent_consumption = Sí)</option>
-      <option value="ate_food_at_event|Sí">Comió en el evento (ate_food_at_event = Sí)</option>
-      <option value="used_portable_toilets|Sí">Usó baños portátiles (used_portable_toilets = Sí)</option>
-      <option value="vip_wristband_area|Sí">Área VIP (vip_wristband_area = Sí)</option>
-      <option value="handwashing_access|Limitado">Lavado de manos limitado (handwashing_access = Limitado)</option>
-    </select>
+  <main class="main">
+    <div class="card">
+      <h3 id="caseTitle">Caso</h3>
+      <div id="caseNarrative" class="small"></div>
+    </div>
 
-    <button id="run" style="margin-left:10px;">Calcular</button>
-    <button id="check" style="margin-left:6px;">Comparar con esperado</button>
+    <div class="split">
+      <div>
+        <div class="card">
+          <h3>Objetivo de la fase</h3>
+          <div id="phaseGoal"></div>
+          <div style="margin-top:10px" class="kv">
+            <div class="small">Producto de salida</div><div id="phaseDeliverable"></div>
+            <div class="small">Criterios de éxito</div><div id="phaseCriteria"></div>
+          </div>
+        </div>
 
-    <pre id="out" style="margin-top:12px;white-space:pre-wrap;">Listo. Elige una exposición y presiona “Calcular”.</pre>
-  </div>
+        <div class="card">
+          <h3>Acciones disponibles</h3>
+          <div class="actions" id="actions"></div>
+        </div>
+
+        <div class="card">
+          <h3>Bitácora (tu respuesta)</h3>
+          <div class="small">Escribe lo que entregarías al final de esta fase. Se guarda en tu navegador.</div>
+          <textarea id="journal"></textarea>
+          <div class="row" style="margin-top:10px">
+            <button class="btn primary" id="saveJournalBtn">Guardar</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>Evidencias desbloqueadas</h3>
+          <div class="small">Al hacer acciones, se desbloquean “cartas” (clue cards) y archivos.</div>
+          <div id="evidence"></div>
+        </div>
+
+        <div class="card">
+          <h3>Panel de análisis (2x2)</h3>
+          <div class="small">Se recomienda usarlo en Fase 3. Calcula OR + IC95 y aplica corrección si hay ceros.</div>
+          <div class="row" style="margin-top:10px">
+            <select id="expSelect">
+              <option value="beverage_tent_consumption|Sí">Carpa/barra (beverage_tent_consumption = Sí)</option>
+              <option value="ate_food_at_event|Sí">Comió en el evento (ate_food_at_event = Sí)</option>
+              <option value="used_portable_toilets|Sí">Usó baños portátiles (used_portable_toilets = Sí)</option>
+              <option value="vip_wristband_area|Sí">Área VIP (vip_wristband_area = Sí)</option>
+              <option value="handwashing_access|Limitado">Lavado de manos limitado (handwashing_access = Limitado)</option>
+            </select>
+            <button class="btn primary" id="calcBtn">Calcular</button>
+            <button class="btn" id="checkBtn">Comparar esperado</button>
+          </div>
+          <pre id="calcOut" style="margin-top:12px">Listo.</pre>
+        </div>
+
+        <div class="card">
+          <h3>Visor de datos / documentos</h3>
+          <div class="small">Cuando abras una evidencia con archivo, se muestra aquí.</div>
+          <div id="viewer"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
 
 <script>
-async function fetchText(url){
-  const r = await fetch(url);
-  if(!r.ok) throw new Error("No se pudo cargar: " + url + " (" + r.status + ")");
-  return await r.text();
-}
+/* ---------- utilidades fetch/parsers ---------- */
 async function fetchJSON(url){
   const r = await fetch(url);
   if(!r.ok) throw new Error("No se pudo cargar: " + url + " (" + r.status + ")");
   return await r.json();
 }
+async function fetchText(url){
+  const r = await fetch(url);
+  if(!r.ok) throw new Error("No se pudo cargar: " + url + " (" + r.status + ")");
+  return await r.text();
+}
 function parseCSV(text){
-  const lines = text.trim().split(/\r?\n/);
+  const lines = text.trim().split(/\\r?\\n/);
   const header = lines[0].split(",");
   return lines.slice(1).map(line=>{
     const cols = line.split(",");
@@ -82,6 +164,8 @@ function parseCSV(text){
     return obj;
   });
 }
+
+/* ---------- calculadora 2x2 ---------- */
 function twoByTwo(rows, exposureCol, exposedVal){
   let a=0,b=0,c=0,d=0;
   for(const r of rows){
@@ -97,78 +181,403 @@ function twoByTwo(rows, exposureCol, exposedVal){
 function orWithCI(a,b,c,d){
   let aa=a, bb=b, cc=c, dd=d;
   const correction = (Math.min(a,b,c,d)===0);
-  if(correction){
-    aa=a+0.5; bb=b+0.5; cc=c+0.5; dd=d+0.5;
-  }
+  if(correction){ aa=a+0.5; bb=b+0.5; cc=c+0.5; dd=d+0.5; }
   const OR = (aa*dd)/(bb*cc);
   const se = Math.sqrt(1/aa + 1/bb + 1/cc + 1/dd);
   const lcl = Math.exp(Math.log(OR) - 1.96*se);
   const ucl = Math.exp(Math.log(OR) + 1.96*se);
-  return {OR, lcl, ucl, correction};
+  return {OR,lcl,ucl,correction};
 }
-function formatResult(expCol, expVal, a,b,c,d, OR,lcl,ucl, correction){
+function format2x2(expCol, expVal, a,b,c,d, OR,lcl,ucl, correction){
   return (
-    `Exposición: ${expCol} == "${expVal}"\n` +
-    `2x2 (Caso/Control x Expuesto/No expuesto)\n` +
-    `a (casos expuestos): ${a}\n` +
-    `b (casos no expuestos): ${b}\n` +
-    `c (controles expuestos): ${c}\n` +
-    `d (controles no expuestos): ${d}\n\n` +
-    `OR${correction ? " (corr. Haldane–Anscombe)" : ""}: ${OR.toFixed(2)}\n` +
-    `IC95%: [${lcl.toFixed(2)}, ${ucl.toFixed(2)}]\n`
+    `Exposición: ${expCol} == "${expVal}"\\n` +
+    `2x2 (Caso/Control x Expuesto/No expuesto)\\n` +
+    `a (casos expuestos): ${a}\\n` +
+    `b (casos no expuestos): ${b}\\n` +
+    `c (controles expuestos): ${c}\\n` +
+    `d (controles no expuestos): ${d}\\n\\n` +
+    `OR${correction ? " (corr. Haldane–Anscombe)" : ""}: ${OR.toFixed(2)}\\n` +
+    `IC95%: [${lcl.toFixed(2)}, ${ucl.toFixed(2)}]\\n`
   );
 }
-let cachedRows = null;
-async function loadRowsOnce(){
-  if(cachedRows) return cachedRows;
-  const csv = await fetchText("./data/attendee_survey_cases_controls.csv");
-  cachedRows = parseCSV(csv);
-  return cachedRows;
-}
-document.getElementById("run").addEventListener("click", async ()=>{
-  const out = document.getElementById("out");
-  out.textContent = "Calculando...";
-  try{
-    const rows = await loadRowsOnce();
-    const [expCol, expVal] = document.getElementById("exp").value.split("|");
-    const {a,b,c,d} = twoByTwo(rows, expCol, expVal);
-    const {OR,lcl,ucl,correction} = orWithCI(a,b,c,d);
-    out.textContent = formatResult(expCol, expVal, a,b,c,d, OR,lcl,ucl, correction);
-  }catch(e){
-    out.textContent = "Error: " + e.message;
-  }
-});
-document.getElementById("check").addEventListener("click", async ()=>{
-  const out = document.getElementById("out");
-  out.textContent = "Comparando con esperado...";
-  try{
-    const rows = await loadRowsOnce();
-    const expected = await fetchJSON("./expected_2x2_results.json");
-    const [expCol, expVal] = document.getElementById("exp").value.split("|");
-    const {a,b,c,d} = twoByTwo(rows, expCol, expVal);
-    const {OR,lcl,ucl,correction} = orWithCI(a,b,c,d);
-    const exp = expected.find(e => e.exposure_col === expCol && e.exposed_value === expVal);
-    if(!exp) throw new Error("No hay valor esperado para esa exposición.");
-    const ORexp = exp.odds_ratio_HA;
-    const tol = 0.10;
-    const okOR = Math.abs(OR - ORexp) / ORexp <= tol;
-    const okTable =
-      a === exp.table.a_cases_exposed &&
-      b === exp.table.b_cases_unexposed &&
-      c === exp.table.c_controls_exposed &&
-      d === exp.table.d_controls_unexposed;
 
-    out.textContent =
-      formatResult(expCol, expVal, a,b,c,d, OR,lcl,ucl, correction) +
-      "\n--- Validación vs esperado ---\n" +
-      `Tabla 2x2 coincide: ${okTable ? "SÍ ✅" : "NO ❌"}\n` +
-      `OR esperado (HA): ${ORexp.toFixed(2)}\n` +
-      `OR dentro de ±10%: ${okOR ? "SÍ ✅" : "NO ❌"}\n`;
+/* ---------- estado del juego ---------- */
+const STORAGE_KEY = "brotegastro_state_v1";
+let cfg = null;
+let clues = null;
+let expected2x2 = null;
+let surveyRows = null;
+
+const defaultState = {
+  heBudget: 60,
+  heUsed: 0,
+  phaseId: 1,
+  unlocked: [],          // clue ids
+  actionsDone: [],       // action ids
+  journal: {}            // phaseId -> text
+};
+let state = null;
+
+function loadState(){
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if(!raw) return structuredClone(defaultState);
+  try{
+    const s = JSON.parse(raw);
+    return {...structuredClone(defaultState), ...s};
+  }catch{
+    return structuredClone(defaultState);
+  }
+}
+function saveState(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+function resetState(){
+  state = structuredClone(defaultState);
+  saveState();
+  render();
+}
+
+/* ---------- narrativas por fase (paso a paso) ---------- */
+const phaseNarratives = {
+  1: `En los últimos 2 días una clínica ocupacional detectó un aumento inusual de personas con diarrea que mencionan haber asistido a un festival masivo en Lima. Hoy llega un reporte preliminar: laboratorio compatible con Salmonella no tifoidea (código S-NTX). El evento ya terminó. Debes decidir si activas investigación y cómo definirás los casos.`,
+  2: `Se consolida el linelist. Debes describir el brote por tiempo, lugar y persona, y priorizar hipótesis plausibles (exposición común vs múltiples fuentes).`,
+  3: `Con entrevistas iniciales, aparece una exposición repetida. Se ejecuta una encuesta rápida a asistentes (casos y controles). Tu tarea es elegir un enfoque analítico simple (2x2) y cuantificar la asociación.`,
+  4: `El festival terminó: no hay muestras ambientales disponibles. Debes reconstruir prácticas operativas (higiene, enfriado, hielo/agua de deshielo) para proponer un mecanismo plausible sin “inventar evidencia”.`,
+  5: `Cierra el informe: medidas de control, comunicación y reflexión. Incluye un protocolo breve de uso responsable de IA en investigaciones de brotes.`
+};
+
+/* ---------- UI helpers ---------- */
+const el = (id)=>document.getElementById(id);
+
+function currentPhase(){
+  return cfg.phases.find(p=>p.phase_id === state.phaseId);
+}
+function heLeft(){
+  return state.heBudget - state.heUsed;
+}
+
+function renderPhaseList(){
+  const list = el("phaseList");
+  list.innerHTML = "";
+  for(const p of cfg.phases){
+    const b = document.createElement("button");
+    b.className = "phaseBtn" + (p.phase_id===state.phaseId ? " active" : "");
+    b.textContent = `Fase ${p.phase_id}: ${p.title}`;
+    b.onclick = ()=>{ state.phaseId = p.phase_id; saveState(); render(); };
+    list.appendChild(b);
+  }
+}
+
+function renderHeader(){
+  el("heLeft").textContent = heLeft();
+  el("heUsed").textContent = state.heUsed;
+  el("phaseLabel").textContent = state.phaseId;
+  el("caseTitle").textContent = `Caso – Fase ${state.phaseId}`;
+  el("caseNarrative").textContent = phaseNarratives[state.phaseId] || "";
+}
+
+function renderPhaseContent(){
+  const p = currentPhase();
+  el("phaseGoal").textContent = p.goal || "";
+  el("phaseDeliverable").textContent = p.deliverable || "";
+  el("phaseCriteria").innerHTML = "";
+
+  const crit = p.success_criteria || {};
+  const ul = document.createElement("ul");
+  ul.style.margin="6px 0 0 18px";
+  if(crit.must_include){
+    for(const c of crit.must_include){
+      const li=document.createElement("li"); li.textContent=c; ul.appendChild(li);
+    }
+  }else{
+    const li=document.createElement("li"); li.textContent="(no definido)"; ul.appendChild(li);
+  }
+  el("phaseCriteria").appendChild(ul);
+
+  // bitácora
+  el("journal").value = state.journal[String(state.phaseId)] || "";
+}
+
+function doAction(a){
+  if(state.actionsDone.includes(a.action_id)) return;
+  if(heLeft() < a.cost_HE) return;
+
+  state.heUsed += a.cost_HE;
+  state.actionsDone.push(a.action_id);
+
+  const unlocks = a.unlocks || [];
+  for(const u of unlocks){
+    if(!state.unlocked.includes(u)) state.unlocked.push(u);
+  }
+
+  saveState();
+  render();
+}
+
+function renderActions(){
+  const p = currentPhase();
+  const box = el("actions");
+  box.innerHTML = "";
+
+  for(const a of (p.actions||[])){
+    const wrap = document.createElement("div");
+    wrap.className = "action";
+
+    const top = document.createElement("div");
+    top.className = "actionTop";
+
+    const left = document.createElement("div");
+    const name = document.createElement("div");
+    name.className = "actionName";
+    name.textContent = a.name;
+
+    const note = document.createElement("div");
+    note.className = "actionNote";
+    note.textContent = a.note || "";
+
+    left.appendChild(name);
+    if(a.note) left.appendChild(note);
+
+    const right = document.createElement("div");
+    right.className = "row";
+    const cost = document.createElement("span");
+    cost.className = "pill";
+    cost.textContent = `Costo: ${a.cost_HE} HE`;
+
+    const btn = document.createElement("button");
+    btn.className = "btn primary";
+    btn.textContent = state.actionsDone.includes(a.action_id) ? "Hecho" : "Ejecutar";
+    btn.disabled = state.actionsDone.includes(a.action_id) || heLeft() < a.cost_HE;
+    btn.onclick = ()=>doAction(a);
+
+    right.appendChild(cost);
+    right.appendChild(btn);
+
+    top.appendChild(left);
+    top.appendChild(right);
+
+    wrap.appendChild(top);
+    box.appendChild(wrap);
+  }
+
+  // hints (si existen)
+  if((p.hints||[]).length){
+    const hintCard = document.createElement("div");
+    hintCard.className="action";
+    hintCard.innerHTML = `<div class="actionName">Hints</div><div class="actionNote">Úsalos si te atoras (no cuestan HE en esta versión).</div>`;
+    const ul = document.createElement("ul");
+    ul.style.margin="8px 0 0 18px";
+    for(const h of p.hints){
+      const li=document.createElement("li");
+      li.textContent = `[${h.level}] ${h.text}`;
+      ul.appendChild(li);
+    }
+    hintCard.appendChild(ul);
+    box.appendChild(hintCard);
+  }
+}
+
+async function openEvidence(clueId){
+  const v = el("viewer");
+  v.innerHTML = "<div class='small'>Cargando...</div>";
+
+  const c = clues[clueId];
+  if(!c){ v.innerHTML="<div class='small'>No se encontró la carta.</div>"; return; }
+
+  const title = document.createElement("div");
+  title.className="pill";
+  title.textContent = c.title || clueId;
+
+  v.appendChild(title);
+
+  // content_file (csv) o content (texto)
+  if(c.content_file){
+    const path = "./" + c.content_file;
+    const text = await fetchText(path);
+
+    if(path.endsWith(".csv")){
+      const rows = parseCSV(text);
+      const table = document.createElement("table");
+      const thead = document.createElement("thead");
+      const trh = document.createElement("tr");
+      Object.keys(rows[0]||{}).forEach(k=>{
+        const th=document.createElement("th"); th.textContent=k; trh.appendChild(th);
+      });
+      thead.appendChild(trh);
+      table.appendChild(thead);
+
+      const tbody = document.createElement("tbody");
+      rows.slice(0, 60).forEach(r=>{
+        const tr=document.createElement("tr");
+        Object.values(r).forEach(val=>{
+          const td=document.createElement("td"); td.textContent=val; tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+
+      const cap = document.createElement("div");
+      cap.className="small";
+      cap.style.margin="10px 0";
+      cap.textContent = `Mostrando ${Math.min(60, rows.length)} de ${rows.length} filas.`;
+
+      v.appendChild(cap);
+      v.appendChild(table);
+    } else {
+      const pre=document.createElement("pre"); pre.textContent=text; v.appendChild(pre);
+    }
+    return;
+  }
+
+  if(Array.isArray(c.content)){
+    const pre=document.createElement("pre"); pre.textContent=c.content.join("\\n"); v.appendChild(pre);
+    return;
+  }
+
+  if(typeof c.content === "string"){
+    const pre=document.createElement("pre"); pre.textContent=c.content; v.appendChild(pre);
+    return;
+  }
+
+  v.appendChild(document.createElement("pre")).textContent = JSON.stringify(c, null, 2);
+}
+
+function renderEvidence(){
+  const box = el("evidence");
+  box.innerHTML = "";
+
+  if(!state.unlocked.length){
+    box.innerHTML = "<div class='small'>Aún no has desbloqueado evidencias. Ejecuta acciones.</div>";
+    return;
+  }
+
+  for(const id of state.unlocked){
+    const c = clues[id];
+    const item = document.createElement("div");
+    item.className="action";
+    const t = document.createElement("div");
+    t.className="actionName";
+    t.textContent = c?.title || id;
+
+    const s = document.createElement("div");
+    s.className="actionNote";
+    s.textContent = c?.interpretation_tip || (c?.content ? "Carta desbloqueada." : "Evidencia.");
+
+    const row = document.createElement("div");
+    row.className="row";
+    row.style.marginTop="8px";
+
+    const btn = document.createElement("button");
+    btn.className="btn";
+    btn.textContent = "Abrir";
+    btn.onclick = ()=>openEvidence(id);
+
+    row.appendChild(btn);
+    item.appendChild(t);
+    item.appendChild(s);
+    item.appendChild(row);
+    box.appendChild(item);
+  }
+}
+
+async function loadSurveyOnce(){
+  if(surveyRows) return surveyRows;
+  const csv = await fetchText("./data/attendee_survey_cases_controls.csv");
+  surveyRows = parseCSV(csv);
+  return surveyRows;
+}
+
+async function runCalc(compare=false){
+  const out = el("calcOut");
+  out.textContent = compare ? "Comparando..." : "Calculando...";
+  try{
+    const rows = await loadSurveyOnce();
+    const [col,val] = el("expSelect").value.split("|");
+
+    const {a,b,c,d} = twoByTwo(rows, col, val);
+    const {OR,lcl,ucl,correction} = orWithCI(a,b,c,d);
+
+    let msg = format2x2(col,val,a,b,c,d,OR,lcl,ucl,correction);
+
+    if(compare){
+      if(!expected2x2) expected2x2 = await fetchJSON("./expected_2x2_results.json");
+      const exp = expected2x2.find(e=>e.exposure_col===col && e.exposed_value===val);
+      if(!exp) throw new Error("No hay esperado para esa exposición.");
+      const ORexp = exp.odds_ratio_HA;
+      const tol = 0.10;
+      const okOR = Math.abs(OR-ORexp)/ORexp <= tol;
+      const okTab = a===exp.table.a_cases_exposed && b===exp.table.b_cases_unexposed && c===exp.table.c_controls_exposed && d===exp.table.d_controls_unexposed;
+
+      msg += "\\n--- Validación vs esperado ---\\n";
+      msg += `Tabla coincide: ${okTab ? "SÍ ✅" : "NO ❌"}\\n`;
+      msg += `OR esperado (HA): ${ORexp.toFixed(2)}\\n`;
+      msg += `OR dentro ±10%: ${okOR ? "SÍ ✅" : "NO ❌"}\\n`;
+    }
+
+    out.textContent = msg;
   }catch(e){
     out.textContent = "Error: " + e.message;
   }
+}
+
+function exportJournal(){
+  const payload = {
+    timestamp: new Date().toISOString(),
+    heBudget: state.heBudget,
+    heUsed: state.heUsed,
+    actionsDone: state.actionsDone,
+    unlocked: state.unlocked,
+    journal: state.journal
+  };
+  const blob = new Blob([JSON.stringify(payload,null,2)], {type:"application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "brotegastro_bitacora.json";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function render(){
+  renderPhaseList();
+  renderHeader();
+  renderPhaseContent();
+  renderActions();
+  renderEvidence();
+}
+
+async function init(){
+  state = loadState();
+  cfg = await fetchJSON("./game_config_individual.json");
+  clues = await fetchJSON("./clue_cards.json");
+
+  // Inicializa HE budget desde config si existe
+  if(cfg.hours_budget && !localStorage.getItem(STORAGE_KEY)){
+    state.heBudget = cfg.hours_budget;
+    saveState();
+  }
+  el("heLeft").textContent = heLeft();
+  el("heUsed").textContent = state.heUsed;
+
+  el("saveJournalBtn").onclick = ()=>{
+    state.journal[String(state.phaseId)] = el("journal").value || "";
+    saveState();
+    alert("Guardado.");
+  };
+  el("resetBtn").onclick = ()=>{
+    if(confirm("¿Reiniciar juego? Se borrará tu progreso local.")) resetState();
+  };
+  el("exportBtn").onclick = exportJournal;
+
+  el("calcBtn").onclick = ()=>runCalc(false);
+  el("checkBtn").onclick = ()=>runCalc(true);
+
+  render();
+}
+
+init().catch(e=>{
+  document.body.innerHTML = "<pre>Error al iniciar: " + e.message + "</pre>";
 });
 </script>
-
 </body>
 </html>
