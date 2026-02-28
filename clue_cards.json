@@ -1,0 +1,141 @@
+{
+  "clue_case_definition_template": {
+    "title": "Plantilla para definición de caso",
+    "content": [
+      "Sospechoso: asistió al evento + diarrea (≥3 deposiciones/24h) dentro de una ventana plausible post-asistencia.",
+      "Probable: sospechoso + evidencia epidemiológica (p.ej., consumo en carpa/barra o vínculo con casos).",
+      "Confirmado: probable + laboratorio compatible con Salmonella no tifoidea (código S‑NTX)."
+    ]
+  },
+  "clue_linelist_20": {
+    "title": "Linelist preliminar (20 casos)",
+    "content": "Se observan fechas de inicio concentradas 1–3 días después de los días de mayor asistencia. La comida reportada es variada; varios mencionan 'latas bien frías' de la carpa/barra."
+  },
+  "clue_event_map": {
+    "title": "Mapa del evento (resumen)",
+    "content": "Zonas: Puestos de comida (20), Carpa de bebidas (1), Baños portátiles (3 áreas), Estaciones de lavado (2). La carpa de bebidas no tiene lavamanos interno."
+  },
+  "clue_vendor_list": {
+    "title": "Lista abreviada de puestos",
+    "content": "Los asistentes reportan múltiples puestos; no hay un único puesto común en entrevistas iniciales."
+  },
+  "clue_beverage_tent_info": {
+    "title": "Info inicial: Carpa/Barra",
+    "content": "Se vendían bebidas en lata. Se enfriaban en un sistema improvisado con hielo repuesto a diario."
+  },
+  "clue_lab_report": {
+    "title": "Reporte de laboratorio",
+    "content": "Se confirma Salmonella enterica no tifoidea (S‑NTX). La investigación ambiental será limitada porque el evento ya terminó."
+  },
+  "clue_social_media": {
+    "title": "Redes sociales (ruido + pista)",
+    "content": [
+      "Ruido: algunos culpan a 'tacos' y a un 'chifa' sin evidencias consistentes.",
+      "Pista útil: varios postean fotos con 'latas heladas' de la carpa."
+    ]
+  },
+  "clue_epi_curve": {
+    "title": "Curva epidémica",
+    "content_file": "data/epi_curve.csv",
+    "interpretation_tip": "Busca pico(s) y dispersión: ¿exposición puntual vs continua?"
+  },
+  "clue_district_counts": {
+    "title": "Casos por distrito",
+    "content_file": "data/district_counts.csv",
+    "interpretation_tip": "Distribución amplia sugiere exposición común en el evento."
+  },
+  "clue_demographics": {
+    "title": "Perfil de casos (resumen)",
+    "content": "Predominan hombres adultos (35–44). Hospitalizaciones raras. Cuadro compatible con gastroenteritis bacteriana."
+  },
+  "clue_data_cleaning_report": {
+    "title": "Reporte de limpieza de datos",
+    "content": "Se corrigieron 3 fechas inconsistentes y 1 registro duplicado. Mejora la precisión de la curva."
+  },
+  "clue_quick_interviews_round1": {
+    "title": "Entrevistas rápidas (Ronda 1)",
+    "content": [
+      "Varios casos comieron en puestos diferentes; algunos NO comieron.",
+      "Todos recuerdan pasar por la carpa/barra al menos una vez.",
+      "Algunos usaron baños portátiles; otros no."
+    ]
+  },
+  "clue_exposure_summary_cases": {
+    "title": "Resumen de exposiciones en casos",
+    "content_file": "data/exposure_summary_cases.csv",
+    "interpretation_tip": "Si una exposición está en 100% de casos, úsala como hipótesis fuerte (ojo con sesgo de medición)."
+  },
+  "clue_attendee_survey": {
+    "title": "Encuesta casos-controles",
+    "content_file": "data/attendee_survey_cases_controls.csv",
+    "interpretation_tip": "Construye una 2x2 para carpa/barra y compara con otras exposiciones."
+  },
+  "tool_2x2_calculator": {
+    "title": "Herramienta 2x2",
+    "content": [
+      "Genera tabla 2x2 (a,b,c,d) desde el dataset casos-controles.",
+      "Calcula OR y 95% CI.",
+      "Si hay celdas con 0, aplica corrección de Haldane–Anscombe (+0.5 a cada celda).",
+      "Opcional: Fisher exact p-valor."
+    ],
+    "requires_player_input": {
+      "fields": [
+        "exposure_col",
+        "exposed_value",
+        "a",
+        "b",
+        "c",
+        "d",
+        "odds_ratio"
+      ],
+      "validation": "compare_with_expected_2x2_results_json"
+    }
+  },
+  "clue_quick_interviews_round2": {
+    "title": "Entrevistas enfocadas (Ronda 2: barra/cooler)",
+    "content": [
+      "El 'cooler' era un contenedor no grado alimentario, con drenaje deficiente.",
+      "Se acumulaba agua de deshielo; no se sanitizaba durante el evento.",
+      "Manipulación de hielo y latas con manos desnudas; no había lavamanos dentro."
+    ]
+  },
+  "clue_red_herring_food_vendor": {
+    "title": "Callejón sin salida: puesto de comida sospechoso",
+    "content": "Al revisar recibos y relatos, los casos no convergen en un solo puesto. La señal se diluye. Pierdes tiempo."
+  },
+  "clue_virtual_walkthrough": {
+    "title": "Recorrido virtual del montaje",
+    "content": [
+      "Flujo: entrega de hielo → enfriado en contenedor improvisado → latas mojadas por deshielo → apertura y consumo.",
+      "Se observó agua estancada y acumulación de residuos; no hay protocolo de sanitización.",
+      "El evento terminó: no hay muestras disponibles."
+    ]
+  },
+  "clue_ice_supplier_interview": {
+    "title": "Entrevista proveedor de hielo",
+    "content": "El hielo se entregaba a varios puestos. No hay reportes de brotes en otros usuarios. Sugiere contaminación secundaria durante manipulación."
+  },
+  "clue_hand_hygiene_audit": {
+    "title": "Auditoría de higiene",
+    "content": "Estaciones de lavado insuficientes para la afluencia. Alcohol gel se agotó en días 4–5. Baños portátiles sin agua en algunos momentos."
+  },
+  "tool_ai_assistant": {
+    "title": "IA asistente (simulada)",
+    "content": [
+      "Genera 2–3 hipótesis rápidamente y propone preguntas para entrevistas.",
+      "Advertencia: puede alucinar (p.ej., sugerir toxina) y debe ser verificada con datos del caso."
+    ]
+  },
+  "tool_control_plan_template": {
+    "title": "Plantilla plan de control",
+    "content": "Checklist: contenedores grado alimentario con drenaje; sanitización clorada; separación hielo consumo/enfriado; pinzas/guantes; lavamanos; capacitación; inspección; trazabilidad."
+  },
+  "tool_risk_comms_template": {
+    "title": "Plantilla comunicado",
+    "content": "Mensajes: síntomas, cuándo consultar, evitar manipular alimentos si enfermo, qué se sabe/qué no, sin atribuir culpa sin evidencia."
+  },
+  "tool_ai_policy_template": {
+    "title": "Plantilla de uso responsable de IA",
+    "content": "Definir: tareas permitidas (redacción, checklist, ideas) vs prohibidas (inventar evidencia), verificación, registro de prompts/salidas, protección de datos."
+  }
+}

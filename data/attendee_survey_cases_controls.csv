@@ -1,0 +1,196 @@
+survey_id,case_status,sex,age,district,attended_days,beverage_tent_consumption,beverage_type,ate_food_at_event,food_vendors,used_portable_toilets,vip_wristband_area,handwashing_access
+CV-001,Caso,M,40,Santa Alondra,2026-06-14,Sí,Cerveza en lata,No,,Sí,No,Limitado
+CV-002,Caso,F,35,Nuevo Horizonte,2026-06-14,Sí,Cerveza en lata,Sí,Postres Nube,Sí,No,Limitado
+CV-003,Caso,M,24,Pampa Azul,2026-06-13; 2026-06-14,Sí,Cerveza en lata,No,,Sí,No,Adecuado
+CV-004,Caso,M,36,Villa Mirador,2026-06-16,Sí,Bebida sin alcohol en lata,Sí,Hamburguesas La Parrilla; Ceviches MarAdentro,Sí,No,Limitado
+CV-005,Caso,M,26,Nuevo Horizonte,2026-06-15,Sí,Cerveza en lata,Sí,Postres Nube,Sí,No,Adecuado
+CV-006,Caso,M,44,San Gerónimo del Mar,2026-06-14,Sí,Cerveza en lata,Sí,Chifa Rápido,Sí,No,Limitado
+CV-007,Caso,M,21,Villa Mirador,2026-06-13,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,No,No,Limitado
+CV-008,Caso,F,32,Pampa Azul,2026-06-14,Sí,Cerveza en lata,Sí,Tacos El Puerto; Anticuchos Don Lucho,Sí,No,Limitado
+CV-009,Caso,F,43,Pampa Azul,2026-06-13; 2026-06-14,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Adecuado
+CV-010,Caso,M,48,Nuevo Horizonte,2026-06-13,Sí,Cerveza en lata,No,,Sí,No,Limitado
+CV-011,Caso,M,27,Nuevo Horizonte,2026-06-12; 2026-06-14,Sí,Cerveza en lata,Sí,Postres Nube,Sí,No,Adecuado
+CV-012,Caso,M,27,San Gerónimo del Mar,2026-06-13,Sí,Bebida sin alcohol en lata,No,,No,No,Limitado
+CV-013,Caso,M,48,Pampa Azul,2026-06-13; 2026-06-15,Sí,Cerveza en lata,No,,No,No,Limitado
+CV-014,Caso,M,43,Pampa Azul,2026-06-12; 2026-06-14; 2026-06-16,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Limitado
+CV-015,Caso,M,32,Nuevo Horizonte,2026-06-15,Sí,Cerveza en lata,Sí,Chifa Rápido,Sí,No,Adecuado
+CV-016,Caso,M,31,San Gerónimo del Mar,2026-06-14; 2026-06-15,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,Sí,No,Limitado
+CV-017,Caso,F,40,Villa Mirador,2026-06-12; 2026-06-15,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Limitado
+CV-018,Caso,M,44,Villa Mirador,2026-06-13,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,Sí,No,Limitado
+CV-019,Caso,M,44,Santa Alondra,2026-06-14; 2026-06-16,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,No,No,Limitado
+CV-020,Caso,M,43,Santa Alondra,2026-06-16,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Limitado
+CV-021,Caso,M,37,Pampa Azul,2026-06-13; 2026-06-15,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,Sí,No,Limitado
+CV-022,Caso,M,52,Villa Mirador,2026-06-14; 2026-06-16,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Limitado
+CV-023,Caso,M,41,Villa Mirador,2026-06-15,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla,Sí,No,Limitado
+CV-024,Caso,M,43,Santa Alondra,2026-06-12; 2026-06-14,Sí,Cerveza en lata,Sí,Chifa Rápido,Sí,Sí,Limitado
+CV-025,Caso,M,39,Villa Mirador,2026-06-14; 2026-06-15; 2026-06-16,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Adecuado
+CV-026,Caso,F,45,San Gerónimo del Mar,2026-06-13; 2026-06-15,Sí,Cerveza en lata,Sí,Tacos El Puerto,Sí,No,Limitado
+CV-027,Caso,M,29,Nuevo Horizonte,2026-06-15,Sí,Cerveza en lata,Sí,Postres Nube,Sí,No,Limitado
+CV-028,Caso,M,29,San Gerónimo del Mar,2026-06-13,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla,No,No,Adecuado
+CV-029,Caso,F,38,Nuevo Horizonte,2026-06-14; 2026-06-15; 2026-06-16,Sí,Bebida sin alcohol en lata,No,,Sí,No,Limitado
+CV-030,Caso,M,34,San Gerónimo del Mar,2026-06-13; 2026-06-15; 2026-06-16,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,Sí,No,Limitado
+CV-031,Caso,F,48,Nuevo Horizonte,2026-06-15,Sí,Cerveza en lata,Sí,Tacos El Puerto,Sí,Sí,Limitado
+CV-032,Caso,M,41,Nuevo Horizonte,2026-06-14; 2026-06-16,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,Sí,No,Limitado
+CV-033,Caso,F,22,Pampa Azul,2026-06-15; 2026-06-16,Sí,Cerveza en lata,No,,Sí,No,Limitado
+CV-034,Caso,M,37,Santa Alondra,2026-06-14; 2026-06-15,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla,Sí,No,Limitado
+CV-035,Caso,M,24,Villa Mirador,2026-06-13; 2026-06-14; 2026-06-16,Sí,Cerveza en lata,No,,Sí,No,Adecuado
+CV-036,Caso,F,42,San Gerónimo del Mar,2026-06-16,Sí,Cerveza en lata,Sí,Chifa Rápido; Anticuchos Don Lucho,No,Sí,Adecuado
+CV-037,Caso,M,32,San Gerónimo del Mar,2026-06-12,Sí,Cerveza en lata,No,,Sí,Sí,Limitado
+CV-038,Caso,M,39,Pampa Azul,2026-06-13,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho; Postres Nube,Sí,No,Limitado
+CV-039,Caso,M,51,Villa Mirador,2026-06-15,Sí,Cerveza en lata,Sí,Chifa Rápido,Sí,No,Limitado
+CV-040,Caso,F,54,Pampa Azul,2026-06-14; 2026-06-15,Sí,Cerveza en lata,No,,Sí,No,Limitado
+CV-041,Caso,M,50,Villa Mirador,2026-06-15,Sí,Cerveza en lata,Sí,Postres Nube; Anticuchos Don Lucho,No,No,Limitado
+CV-042,Caso,M,48,Nuevo Horizonte,2026-06-15,Sí,Cerveza en lata,Sí,Postres Nube,Sí,No,Adecuado
+CV-043,Caso,M,32,Nuevo Horizonte,2026-06-13; 2026-06-14; 2026-06-16,Sí,Bebida sin alcohol en lata,No,,Sí,No,Limitado
+CV-044,Caso,M,37,San Gerónimo del Mar,2026-06-15; 2026-06-16,Sí,Cerveza en lata,No,,Sí,No,Adecuado
+CV-045,Caso,M,46,Villa Mirador,2026-06-14,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla,Sí,No,Adecuado
+CV-046,Caso,F,46,Villa Mirador,2026-06-12; 2026-06-16,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,Sí,Sí,Limitado
+CV-047,Caso,M,39,Santa Alondra,2026-06-14; 2026-06-15; 2026-06-16,Sí,Cerveza en lata,Sí,Postres Nube; Anticuchos Don Lucho,Sí,No,Adecuado
+CV-048,Caso,F,20,San Gerónimo del Mar,2026-06-14; 2026-06-15; 2026-06-16,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla; Anticuchos Don Lucho,No,Sí,Limitado
+CV-049,Caso,M,36,Santa Alondra,2026-06-14,Sí,Cerveza en lata,Sí,Chifa Rápido,No,No,Limitado
+CV-050,Caso,M,43,Pampa Azul,2026-06-14,Sí,Cerveza en lata,No,,Sí,Sí,Limitado
+CV-051,Caso,M,36,Villa Mirador,2026-06-14,Sí,Cerveza en lata,No,,Sí,No,Adecuado
+CV-052,Caso,M,50,Nuevo Horizonte,2026-06-16,Sí,Bebida sin alcohol en lata,Sí,Hamburguesas La Parrilla; Ceviches MarAdentro,Sí,No,Limitado
+CV-053,Caso,M,38,Pampa Azul,2026-06-12; 2026-06-13; 2026-06-15,Sí,Cerveza en lata,Sí,Tacos El Puerto; Anticuchos Don Lucho,Sí,No,Adecuado
+CV-054,Caso,M,28,Pampa Azul,2026-06-14,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,No,No,Adecuado
+CV-055,Caso,F,36,San Gerónimo del Mar,2026-06-14,Sí,Cerveza en lata,Sí,Postres Nube,Sí,No,Limitado
+CV-056,Caso,M,52,Santa Alondra,2026-06-13; 2026-06-15,Sí,Bebida sin alcohol en lata,No,,Sí,No,Adecuado
+CV-057,Caso,M,31,San Gerónimo del Mar,2026-06-13; 2026-06-14,Sí,Cerveza en lata,Sí,Chifa Rápido,No,No,Limitado
+CV-058,Caso,F,39,Pampa Azul,2026-06-12; 2026-06-15,Sí,Cerveza en lata,No,,Sí,Sí,Limitado
+CV-059,Caso,M,47,Villa Mirador,2026-06-12,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,Sí,No,Limitado
+CV-060,Caso,F,41,Nuevo Horizonte,2026-06-12,Sí,Cerveza en lata,No,,Sí,No,Limitado
+CV-061,Caso,M,50,Pampa Azul,2026-06-12; 2026-06-15,Sí,Bebida sin alcohol en lata,No,,Sí,No,Limitado
+CV-062,Caso,M,30,San Gerónimo del Mar,2026-06-15,Sí,Bebida sin alcohol en lata,No,,No,No,Limitado
+CV-063,Caso,M,35,Nuevo Horizonte,2026-06-13,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,Sí,Sí,Limitado
+CV-064,Caso,M,29,San Gerónimo del Mar,2026-06-12; 2026-06-14; 2026-06-16,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,No,Sí,Adecuado
+CV-065,Caso,M,44,Villa Mirador,2026-06-15,Sí,Cerveza en lata,No,,Sí,No,Limitado
+CV-C001,Control,M,50,San Gerónimo del Mar,2026-06-14; 2026-06-15,No,,Sí,Postres Nube,No,Sí,Limitado
+CV-C002,Control,F,50,San Gerónimo del Mar,2026-06-14; 2026-06-15,No,,Sí,Anticuchos Don Lucho,No,No,Limitado
+CV-C003,Control,F,30,Santa Alondra,2026-06-13,No,,Sí,Tacos El Puerto,Sí,No,Limitado
+CV-C004,Control,M,47,Santa Alondra,2026-06-15,Sí,Cerveza en lata,Sí,Tacos El Puerto,Sí,No,Adecuado
+CV-C005,Control,F,50,Santa Alondra,2026-06-15,No,,No,,No,No,Limitado
+CV-C006,Control,M,30,San Gerónimo del Mar,2026-06-13; 2026-06-15,No,,Sí,Postres Nube,Sí,Sí,Limitado
+CV-C007,Control,F,43,San Gerónimo del Mar,2026-06-16,No,,Sí,Hamburguesas La Parrilla,No,Sí,Adecuado
+CV-C008,Control,M,39,Pampa Azul,2026-06-16,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,Sí,No,Limitado
+CV-C009,Control,F,19,Nuevo Horizonte,2026-06-12,Sí,Cerveza en lata,Sí,Tacos El Puerto,Sí,Sí,Adecuado
+CV-C010,Control,M,43,Nuevo Horizonte,2026-06-15; 2026-06-16,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,No,Sí,Limitado
+CV-C011,Control,F,32,Pampa Azul,2026-06-13; 2026-06-16,No,,Sí,Ceviches MarAdentro,Sí,No,Adecuado
+CV-C012,Control,F,51,Nuevo Horizonte,2026-06-15,No,,No,,No,No,Limitado
+CV-C013,Control,M,28,Villa Mirador,2026-06-16,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla; Anticuchos Don Lucho,Sí,No,Adecuado
+CV-C014,Control,M,20,Santa Alondra,2026-06-13; 2026-06-14,No,,Sí,Ceviches MarAdentro,Sí,No,Adecuado
+CV-C015,Control,M,23,Villa Mirador,2026-06-14; 2026-06-16,No,,Sí,Anticuchos Don Lucho,No,No,Limitado
+CV-C016,Control,M,26,Santa Alondra,2026-06-15,No,,No,,Sí,No,Adecuado
+CV-C017,Control,F,23,Pampa Azul,2026-06-15,No,,Sí,Hamburguesas La Parrilla; Postres Nube,No,No,Limitado
+CV-C018,Control,M,26,Nuevo Horizonte,2026-06-15,No,,Sí,Ceviches MarAdentro; Tacos El Puerto,Sí,Sí,Limitado
+CV-C019,Control,M,48,Santa Alondra,2026-06-15,No,,Sí,Chifa Rápido,Sí,No,Limitado
+CV-C020,Control,M,49,Santa Alondra,2026-06-12; 2026-06-13,Sí,Cerveza en lata,Sí,Postres Nube; Chifa Rápido,No,Sí,Limitado
+CV-C021,Control,F,29,Pampa Azul,2026-06-15,No,,Sí,Tacos El Puerto,Sí,No,Limitado
+CV-C022,Control,M,25,Nuevo Horizonte,2026-06-13; 2026-06-15,No,,Sí,Tacos El Puerto; Postres Nube,Sí,No,Limitado
+CV-C023,Control,M,25,Villa Mirador,2026-06-15,No,,Sí,Ceviches MarAdentro,Sí,No,Limitado
+CV-C024,Control,M,45,Pampa Azul,2026-06-16,No,,Sí,Anticuchos Don Lucho,Sí,No,Adecuado
+CV-C025,Control,M,37,Santa Alondra,2026-06-15,No,,No,,Sí,No,Adecuado
+CV-C026,Control,F,24,Santa Alondra,2026-06-14,Sí,Cerveza en lata,No,,No,No,Limitado
+CV-C027,Control,M,28,Nuevo Horizonte,2026-06-15; 2026-06-16,No,,Sí,Tacos El Puerto; Postres Nube,No,Sí,Limitado
+CV-C028,Control,M,37,Nuevo Horizonte,2026-06-13,Sí,Bebida sin alcohol en lata,Sí,Tacos El Puerto; Anticuchos Don Lucho,No,No,Limitado
+CV-C029,Control,F,33,Santa Alondra,2026-06-14; 2026-06-15,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla,No,No,Limitado
+CV-C030,Control,F,21,Nuevo Horizonte,2026-06-12,No,,Sí,Hamburguesas La Parrilla; Postres Nube,No,No,Limitado
+CV-C031,Control,M,23,San Gerónimo del Mar,2026-06-13; 2026-06-14,No,,Sí,Ceviches MarAdentro; Hamburguesas La Parrilla,No,No,Limitado
+CV-C032,Control,F,39,Nuevo Horizonte,2026-06-14,Sí,Cerveza en lata,Sí,Chifa Rápido,Sí,No,Limitado
+CV-C033,Control,F,43,Pampa Azul,2026-06-15,No,,Sí,Hamburguesas La Parrilla; Ceviches MarAdentro,No,No,Adecuado
+CV-C034,Control,M,20,Pampa Azul,2026-06-16,No,,No,,No,No,Limitado
+CV-C035,Control,F,31,Pampa Azul,2026-06-15,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla; Ceviches MarAdentro,Sí,No,Limitado
+CV-C036,Control,F,28,San Gerónimo del Mar,2026-06-13; 2026-06-15,No,,Sí,Postres Nube,Sí,No,Limitado
+CV-C037,Control,M,35,Santa Alondra,2026-06-15,No,,No,,Sí,No,Limitado
+CV-C038,Control,M,29,Santa Alondra,2026-06-12; 2026-06-14; 2026-06-15,No,,Sí,Hamburguesas La Parrilla,Sí,No,Limitado
+CV-C039,Control,M,40,Villa Mirador,2026-06-16,Sí,Cerveza en lata,Sí,Chifa Rápido,No,Sí,Limitado
+CV-C040,Control,F,29,San Gerónimo del Mar,2026-06-15,No,,Sí,Chifa Rápido,Sí,No,Limitado
+CV-C041,Control,F,30,Villa Mirador,2026-06-15,No,,Sí,Chifa Rápido,Sí,Sí,Limitado
+CV-C042,Control,F,42,San Gerónimo del Mar,2026-06-14,No,,No,,No,No,Adecuado
+CV-C043,Control,M,36,Nuevo Horizonte,2026-06-14; 2026-06-15,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,Sí,Sí,Adecuado
+CV-C044,Control,F,53,Santa Alondra,2026-06-13; 2026-06-16,No,,Sí,Chifa Rápido,Sí,No,Limitado
+CV-C045,Control,F,25,San Gerónimo del Mar,2026-06-13,Sí,Bebida sin alcohol en lata,No,,Sí,No,Limitado
+CV-C046,Control,M,46,Pampa Azul,2026-06-14; 2026-06-15; 2026-06-16,No,,No,,No,Sí,Limitado
+CV-C047,Control,M,49,Nuevo Horizonte,2026-06-12; 2026-06-16,Sí,Cerveza en lata,No,,No,No,Limitado
+CV-C048,Control,F,35,Santa Alondra,2026-06-16,No,,Sí,Hamburguesas La Parrilla,Sí,No,Limitado
+CV-C049,Control,M,23,San Gerónimo del Mar,2026-06-12; 2026-06-15,No,,Sí,Postres Nube,No,No,Limitado
+CV-C050,Control,F,35,Nuevo Horizonte,2026-06-14,Sí,Cerveza en lata,No,,Sí,Sí,Limitado
+CV-C051,Control,M,36,Nuevo Horizonte,2026-06-12,Sí,Cerveza en lata,No,,No,No,Limitado
+CV-C052,Control,M,39,San Gerónimo del Mar,2026-06-13; 2026-06-14; 2026-06-15,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,No,No,Limitado
+CV-C053,Control,M,54,Pampa Azul,2026-06-15; 2026-06-16,No,,Sí,Tacos El Puerto,No,Sí,Adecuado
+CV-C054,Control,M,49,San Gerónimo del Mar,2026-06-16,No,,Sí,Tacos El Puerto; Postres Nube,Sí,Sí,Adecuado
+CV-C055,Control,F,20,Nuevo Horizonte,2026-06-13; 2026-06-16,No,,No,,No,No,Adecuado
+CV-C056,Control,M,45,Pampa Azul,2026-06-16,No,,Sí,Postres Nube; Hamburguesas La Parrilla,No,No,Limitado
+CV-C057,Control,F,27,Santa Alondra,2026-06-16,No,,Sí,Anticuchos Don Lucho,Sí,No,Adecuado
+CV-C058,Control,M,52,Nuevo Horizonte,2026-06-13; 2026-06-16,No,,Sí,Tacos El Puerto; Anticuchos Don Lucho,No,No,Limitado
+CV-C059,Control,F,46,San Gerónimo del Mar,2026-06-14,No,,Sí,Postres Nube,Sí,No,Adecuado
+CV-C060,Control,M,32,San Gerónimo del Mar,2026-06-15,No,,No,,No,No,Limitado
+CV-C061,Control,F,50,Villa Mirador,2026-06-16,No,,Sí,Hamburguesas La Parrilla,Sí,Sí,Adecuado
+CV-C062,Control,F,24,San Gerónimo del Mar,2026-06-13; 2026-06-16,No,,No,,No,No,Limitado
+CV-C063,Control,M,29,Villa Mirador,2026-06-14; 2026-06-16,Sí,Cerveza en lata,No,,Sí,No,Adecuado
+CV-C064,Control,M,47,San Gerónimo del Mar,2026-06-13; 2026-06-16,No,,Sí,Chifa Rápido,Sí,No,Adecuado
+CV-C065,Control,F,38,Santa Alondra,2026-06-14,No,,Sí,Ceviches MarAdentro,Sí,No,Limitado
+CV-C066,Control,F,48,San Gerónimo del Mar,2026-06-14,No,,Sí,Ceviches MarAdentro; Chifa Rápido,Sí,No,Limitado
+CV-C067,Control,M,41,Nuevo Horizonte,2026-06-12,Sí,Cerveza en lata,No,,Sí,Sí,Adecuado
+CV-C068,Control,F,37,Santa Alondra,2026-06-16,No,,Sí,Hamburguesas La Parrilla; Postres Nube,Sí,No,Limitado
+CV-C069,Control,F,54,Nuevo Horizonte,2026-06-16,No,,Sí,Chifa Rápido,Sí,Sí,Adecuado
+CV-C070,Control,F,21,Pampa Azul,2026-06-14,No,,No,,Sí,No,Limitado
+CV-C071,Control,F,45,Nuevo Horizonte,2026-06-14,Sí,Cerveza en lata,Sí,Postres Nube; Chifa Rápido,Sí,Sí,Limitado
+CV-C072,Control,F,37,Nuevo Horizonte,2026-06-15,No,,No,,No,Sí,Limitado
+CV-C073,Control,M,41,Pampa Azul,2026-06-15,No,,Sí,Anticuchos Don Lucho,Sí,No,Limitado
+CV-C074,Control,M,49,San Gerónimo del Mar,2026-06-12; 2026-06-13,No,,Sí,Chifa Rápido,No,No,Adecuado
+CV-C075,Control,M,53,Nuevo Horizonte,2026-06-12; 2026-06-14,No,,Sí,Ceviches MarAdentro,No,No,Limitado
+CV-C076,Control,F,51,Pampa Azul,2026-06-12; 2026-06-15; 2026-06-16,No,,No,,No,No,Limitado
+CV-C077,Control,F,53,Villa Mirador,2026-06-13,No,,Sí,Anticuchos Don Lucho; Tacos El Puerto,Sí,Sí,Limitado
+CV-C078,Control,M,19,San Gerónimo del Mar,2026-06-14,Sí,Cerveza en lata,No,,No,Sí,Limitado
+CV-C079,Control,F,32,Nuevo Horizonte,2026-06-15,No,,No,,Sí,No,Adecuado
+CV-C080,Control,F,51,Nuevo Horizonte,2026-06-15,No,,Sí,Tacos El Puerto,Sí,No,Adecuado
+CV-C081,Control,F,53,Nuevo Horizonte,2026-06-14; 2026-06-15; 2026-06-16,Sí,Cerveza en lata,No,,Sí,No,Limitado
+CV-C082,Control,M,23,Pampa Azul,2026-06-14; 2026-06-15,Sí,Bebida sin alcohol en lata,Sí,Chifa Rápido,No,No,Adecuado
+CV-C083,Control,M,29,Nuevo Horizonte,2026-06-16,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,Sí,No,Adecuado
+CV-C084,Control,M,20,Santa Alondra,2026-06-13,No,,Sí,Tacos El Puerto; Postres Nube,Sí,No,Limitado
+CV-C085,Control,M,35,Pampa Azul,2026-06-14,No,,No,,No,No,Adecuado
+CV-C086,Control,M,38,Santa Alondra,2026-06-15; 2026-06-16,No,,Sí,Anticuchos Don Lucho; Postres Nube,No,No,Limitado
+CV-C087,Control,M,32,Villa Mirador,2026-06-14,No,,Sí,Chifa Rápido,Sí,No,Limitado
+CV-C088,Control,M,50,Villa Mirador,2026-06-12,No,,Sí,Tacos El Puerto,Sí,No,Adecuado
+CV-C089,Control,M,52,Villa Mirador,2026-06-16,Sí,Cerveza en lata,Sí,Tacos El Puerto; Hamburguesas La Parrilla,No,No,Limitado
+CV-C090,Control,M,43,San Gerónimo del Mar,2026-06-15,Sí,Cerveza en lata,Sí,Chifa Rápido,Sí,No,Adecuado
+CV-C091,Control,F,25,Villa Mirador,2026-06-12,No,,No,,Sí,No,Adecuado
+CV-C092,Control,M,53,Pampa Azul,2026-06-16,Sí,Cerveza en lata,No,,Sí,No,Limitado
+CV-C093,Control,F,47,Villa Mirador,2026-06-14; 2026-06-16,Sí,Bebida sin alcohol en lata,Sí,Anticuchos Don Lucho,No,No,Adecuado
+CV-C094,Control,F,40,Villa Mirador,2026-06-15,No,,No,,No,No,Limitado
+CV-C095,Control,M,31,Villa Mirador,2026-06-16,No,,Sí,Ceviches MarAdentro,No,No,Limitado
+CV-C096,Control,M,31,Santa Alondra,2026-06-14,No,,No,,No,No,Limitado
+CV-C097,Control,M,19,San Gerónimo del Mar,2026-06-14,No,,Sí,Postres Nube,Sí,No,Adecuado
+CV-C098,Control,F,54,San Gerónimo del Mar,2026-06-14; 2026-06-15,No,,Sí,Postres Nube,Sí,No,Limitado
+CV-C099,Control,F,22,San Gerónimo del Mar,2026-06-16,No,,Sí,Chifa Rápido; Tacos El Puerto,Sí,No,Limitado
+CV-C100,Control,M,31,Pampa Azul,2026-06-13; 2026-06-16,No,,No,,Sí,No,Limitado
+CV-C101,Control,F,42,Villa Mirador,2026-06-14; 2026-06-16,No,,Sí,Ceviches MarAdentro; Hamburguesas La Parrilla,Sí,No,Adecuado
+CV-C102,Control,M,37,Nuevo Horizonte,2026-06-16,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Limitado
+CV-C103,Control,M,19,Pampa Azul,2026-06-15,No,,Sí,Chifa Rápido; Anticuchos Don Lucho,Sí,Sí,Limitado
+CV-C104,Control,F,23,Pampa Azul,2026-06-15; 2026-06-16,No,,Sí,Postres Nube,No,No,Limitado
+CV-C105,Control,M,34,Santa Alondra,2026-06-12; 2026-06-15,No,,Sí,Hamburguesas La Parrilla,Sí,Sí,Limitado
+CV-C106,Control,F,42,Villa Mirador,2026-06-15,No,,Sí,Postres Nube,Sí,No,Adecuado
+CV-C107,Control,M,45,Villa Mirador,2026-06-15,No,,No,,Sí,No,Limitado
+CV-C108,Control,F,19,Villa Mirador,2026-06-12,Sí,Cerveza en lata,Sí,Chifa Rápido,Sí,Sí,Limitado
+CV-C109,Control,M,52,Pampa Azul,2026-06-12; 2026-06-13,No,,Sí,Anticuchos Don Lucho; Chifa Rápido,No,Sí,Adecuado
+CV-C110,Control,M,54,Pampa Azul,2026-06-13; 2026-06-14; 2026-06-15,Sí,Bebida sin alcohol en lata,Sí,Tacos El Puerto,Sí,No,Limitado
+CV-C111,Control,F,22,San Gerónimo del Mar,2026-06-13; 2026-06-15,Sí,Cerveza en lata,No,,Sí,No,Adecuado
+CV-C112,Control,M,18,Nuevo Horizonte,2026-06-12,Sí,Bebida sin alcohol en lata,No,,Sí,No,Limitado
+CV-C113,Control,F,29,Nuevo Horizonte,2026-06-14; 2026-06-16,No,,Sí,Chifa Rápido,Sí,Sí,Adecuado
+CV-C114,Control,F,53,San Gerónimo del Mar,2026-06-12,Sí,Cerveza en lata,Sí,Tacos El Puerto; Ceviches MarAdentro,Sí,No,Limitado
+CV-C115,Control,F,40,Nuevo Horizonte,2026-06-14; 2026-06-15; 2026-06-16,No,,Sí,Tacos El Puerto,No,No,Limitado
+CV-C116,Control,F,48,Santa Alondra,2026-06-13,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Adecuado
+CV-C117,Control,F,28,Villa Mirador,2026-06-15,No,,No,,Sí,No,Adecuado
+CV-C118,Control,F,27,Santa Alondra,2026-06-12; 2026-06-15,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Adecuado
+CV-C119,Control,F,20,San Gerónimo del Mar,2026-06-14; 2026-06-15; 2026-06-16,No,,Sí,Postres Nube; Hamburguesas La Parrilla,Sí,No,Limitado
+CV-C120,Control,F,31,Nuevo Horizonte,2026-06-15,No,,Sí,Postres Nube,Sí,No,Adecuado
+CV-C121,Control,M,33,Villa Mirador,2026-06-13; 2026-06-15,No,,No,,Sí,No,Adecuado
+CV-C122,Control,M,27,Nuevo Horizonte,2026-06-16,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla,Sí,No,Limitado
+CV-C123,Control,F,46,Santa Alondra,2026-06-14,No,,Sí,Postres Nube,Sí,Sí,Adecuado
+CV-C124,Control,M,27,Nuevo Horizonte,2026-06-14,No,,Sí,Ceviches MarAdentro,Sí,No,Adecuado
+CV-C125,Control,M,29,Villa Mirador,2026-06-13; 2026-06-16,No,,No,,Sí,Sí,Limitado
+CV-C126,Control,M,47,Santa Alondra,2026-06-13,Sí,Bebida sin alcohol en lata,Sí,Anticuchos Don Lucho,Sí,No,Limitado
+CV-C127,Control,M,18,Pampa Azul,2026-06-14; 2026-06-15,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla; Postres Nube,Sí,No,Limitado
+CV-C128,Control,F,22,Villa Mirador,2026-06-15; 2026-06-16,No,,Sí,Anticuchos Don Lucho,No,No,Limitado
+CV-C129,Control,F,37,Villa Mirador,2026-06-16,No,,Sí,Chifa Rápido; Postres Nube,Sí,Sí,Limitado
+CV-C130,Control,M,25,Villa Mirador,2026-06-16,No,,Sí,Ceviches MarAdentro,Sí,Sí,Limitado

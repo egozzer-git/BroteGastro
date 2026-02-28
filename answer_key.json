@@ -1,0 +1,114 @@
+{
+  "final_solution": {
+    "agent": "Salmonella enterica no tifoidea (S-NTX)",
+    "primary_exposure": "Consumo en carpa/barra de bebidas en lata enfriadas",
+    "mechanism_keywords": [
+      "contaminación secundaria",
+      "hielo",
+      "agua de deshielo",
+      "cooler",
+      "manos",
+      "mano-boca",
+      "superficie externa de latas"
+    ]
+  },
+  "scoring": {
+    "budget_HE": 60,
+    "base_score": 100,
+    "cost_penalty_per_HE": 0.5,
+    "bonus": {
+      "correct_primary_exposure": 15,
+      "mentions_limitations_no_samples": 5,
+      "mentions_biases": 5,
+      "robust_control_plan": 10,
+      "responsible_ai_reflection": 10,
+      "correct_2x2_calculation": 15
+    },
+    "penalties": {
+      "focus_food_vendor_without_evidence": -10,
+      "claims_proven_source_without_samples": -8,
+      "uses_ai_as_authority_without_verification": -5,
+      "missing_or_wrong_2x2": -12
+    }
+  },
+  "calculations": {
+    "expected_2x2_file": "expected_2x2_results.json",
+    "tolerance_relative": 0.1,
+    "required_exposure": {
+      "exposure_col": "beverage_tent_consumption",
+      "exposed_value": "Sí"
+    },
+    "expected": {
+      "beverage_tent_consumption::Sí": {
+        "table": {
+          "a_cases_exposed": 65,
+          "b_cases_unexposed": 0,
+          "c_controls_exposed": 40,
+          "d_controls_unexposed": 90
+        },
+        "odds_ratio_HA": 292.7283950617284,
+        "ci95_HA": [
+          17.67696258031399,
+          4847.547359230372
+        ],
+        "fisher_p_two_sided": 3.911977286583942e-24
+      },
+      "ate_food_at_event::Sí": {
+        "table": {
+          "a_cases_exposed": 45,
+          "b_cases_unexposed": 20,
+          "c_controls_exposed": 94,
+          "d_controls_unexposed": 36
+        },
+        "odds_ratio_HA": 0.8617021276595744,
+        "ci95_HA": [
+          0.44897529812939935,
+          1.6538338743950955
+        ],
+        "fisher_p_two_sided": 0.7373843347294153
+      },
+      "used_portable_toilets::Sí": {
+        "table": {
+          "a_cases_exposed": 46,
+          "b_cases_unexposed": 19,
+          "c_controls_exposed": 80,
+          "d_controls_unexposed": 50
+        },
+        "odds_ratio_HA": 1.513157894736842,
+        "ci95_HA": [
+          0.7972822721994768,
+          2.871814530740716
+        ],
+        "fisher_p_two_sided": 0.2660624649291056
+      },
+      "vip_wristband_area::Sí": {
+        "table": {
+          "a_cases_exposed": 10,
+          "b_cases_unexposed": 55,
+          "c_controls_exposed": 31,
+          "d_controls_unexposed": 99
+        },
+        "odds_ratio_HA": 0.5806451612903226,
+        "ci95_HA": [
+          0.26475788401247746,
+          1.2734230921485066
+        ],
+        "fisher_p_two_sided": 0.19566601741104556
+      },
+      "handwashing_access::Limitado": {
+        "table": {
+          "a_cases_exposed": 47,
+          "b_cases_unexposed": 18,
+          "c_controls_exposed": 85,
+          "d_controls_unexposed": 45
+        },
+        "odds_ratio_HA": 1.3823529411764706,
+        "ci95_HA": [
+          0.7198682152236491,
+          2.6545131644485225
+        ],
+        "fisher_p_two_sided": 0.41688678220806025
+      }
+    }
+  }
+}

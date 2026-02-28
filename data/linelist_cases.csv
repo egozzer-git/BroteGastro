@@ -1,0 +1,66 @@
+case_id,case_class,sex,age,district,onset_date,attended_days,beverage_tent_consumption,beverage_type,ate_food_at_event,food_vendors,used_portable_toilets,vip_wristband_area,handwashing_access,diarrhea,fever,vomiting,blood_in_stool,clinic_visit,hospitalized,specimen_date,lab_code
+CV-001,Confirmado,M,40,Santa Alondra,2026-06-16,2026-06-14,Sí,Cerveza en lata,No,,Sí,No,Limitado,Sí,No,Sí,No,No,No,2026-06-16,S-NTX (no tifoidea)
+CV-002,Probable,F,35,Nuevo Horizonte,2026-06-15,2026-06-14,Sí,Cerveza en lata,Sí,Postres Nube,Sí,No,Limitado,Sí,Sí,No,No,Sí,Sí,,
+CV-003,Confirmado,M,24,Pampa Azul,2026-06-15,2026-06-13; 2026-06-14,Sí,Cerveza en lata,No,,Sí,No,Adecuado,Sí,No,No,No,No,No,2026-06-18,S-NTX (no tifoidea)
+CV-004,Probable,M,36,Villa Mirador,2026-06-18,2026-06-16,Sí,Bebida sin alcohol en lata,Sí,Hamburguesas La Parrilla; Ceviches MarAdentro,Sí,No,Limitado,Sí,No,Sí,No,Sí,No,,
+CV-005,Confirmado,M,26,Nuevo Horizonte,2026-06-17,2026-06-15,Sí,Cerveza en lata,Sí,Postres Nube,Sí,No,Adecuado,Sí,No,No,No,No,No,2026-06-17,S-NTX (no tifoidea)
+CV-006,Probable,M,44,San Gerónimo del Mar,2026-06-16,2026-06-14,Sí,Cerveza en lata,Sí,Chifa Rápido,Sí,No,Limitado,Sí,Sí,No,No,No,No,,
+CV-007,Confirmado,M,21,Villa Mirador,2026-06-15,2026-06-13,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,No,No,Limitado,Sí,Sí,No,No,Sí,No,2026-06-16,S-NTX (no tifoidea)
+CV-008,Confirmado,F,32,Pampa Azul,2026-06-16,2026-06-14,Sí,Cerveza en lata,Sí,Tacos El Puerto; Anticuchos Don Lucho,Sí,No,Limitado,Sí,Sí,No,No,No,No,2026-06-19,S-NTX (no tifoidea)
+CV-009,Probable,F,43,Pampa Azul,2026-06-15,2026-06-13; 2026-06-14,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Adecuado,Sí,No,Sí,No,Sí,No,,
+CV-010,Confirmado,M,48,Nuevo Horizonte,2026-06-14,2026-06-13,Sí,Cerveza en lata,No,,Sí,No,Limitado,Sí,No,No,No,Sí,No,2026-06-16,S-NTX (no tifoidea)
+CV-011,Confirmado,M,27,Nuevo Horizonte,2026-06-14,2026-06-12; 2026-06-14,Sí,Cerveza en lata,Sí,Postres Nube,Sí,No,Adecuado,Sí,No,No,No,No,No,2026-06-15,S-NTX (no tifoidea)
+CV-012,Confirmado,M,27,San Gerónimo del Mar,2026-06-14,2026-06-13,Sí,Bebida sin alcohol en lata,No,,No,No,Limitado,Sí,Sí,No,No,Sí,No,2026-06-15,S-NTX (no tifoidea)
+CV-013,Probable,M,48,Pampa Azul,2026-06-16,2026-06-13; 2026-06-15,Sí,Cerveza en lata,No,,No,No,Limitado,Sí,No,No,No,Sí,No,,
+CV-014,Probable,M,43,Pampa Azul,2026-06-18,2026-06-12; 2026-06-14; 2026-06-16,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Limitado,Sí,Sí,Sí,No,No,No,,
+CV-015,Confirmado,M,32,Nuevo Horizonte,2026-06-16,2026-06-15,Sí,Cerveza en lata,Sí,Chifa Rápido,Sí,No,Adecuado,Sí,No,Sí,No,Sí,No,2026-06-16,S-NTX (no tifoidea)
+CV-016,Probable,M,31,San Gerónimo del Mar,2026-06-17,2026-06-14; 2026-06-15,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,Sí,No,Limitado,Sí,No,Sí,No,No,No,,
+CV-017,Confirmado,F,40,Villa Mirador,2026-06-17,2026-06-12; 2026-06-15,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Limitado,Sí,No,Sí,Sí,Sí,No,2026-06-19,S-NTX (no tifoidea)
+CV-018,Probable,M,44,Villa Mirador,2026-06-16,2026-06-13,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,Sí,No,Limitado,Sí,Sí,Sí,No,No,No,,
+CV-019,Confirmado,M,44,Santa Alondra,2026-06-16,2026-06-14; 2026-06-16,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,No,No,Limitado,Sí,No,Sí,No,No,No,2026-06-16,S-NTX (no tifoidea)
+CV-020,Confirmado,M,43,Santa Alondra,2026-06-18,2026-06-16,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Limitado,Sí,Sí,Sí,No,No,No,2026-06-19,S-NTX (no tifoidea)
+CV-021,Probable,M,37,Pampa Azul,2026-06-16,2026-06-13; 2026-06-15,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,Sí,No,Limitado,Sí,Sí,Sí,No,No,No,,
+CV-022,Confirmado,M,52,Villa Mirador,2026-06-17,2026-06-14; 2026-06-16,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Limitado,Sí,No,Sí,No,Sí,No,2026-06-20,S-NTX (no tifoidea)
+CV-023,Probable,M,41,Villa Mirador,2026-06-16,2026-06-15,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla,Sí,No,Limitado,Sí,Sí,No,No,No,No,,
+CV-024,Confirmado,M,43,Santa Alondra,2026-06-15,2026-06-12; 2026-06-14,Sí,Cerveza en lata,Sí,Chifa Rápido,Sí,Sí,Limitado,Sí,Sí,No,No,Sí,No,2026-06-16,S-NTX (no tifoidea)
+CV-025,Confirmado,M,39,Villa Mirador,2026-06-18,2026-06-14; 2026-06-15; 2026-06-16,Sí,Cerveza en lata,Sí,Postres Nube,No,No,Adecuado,Sí,No,No,No,Sí,No,2026-06-21,S-NTX (no tifoidea)
+CV-026,Confirmado,F,45,San Gerónimo del Mar,2026-06-17,2026-06-13; 2026-06-15,Sí,Cerveza en lata,Sí,Tacos El Puerto,Sí,No,Limitado,Sí,No,No,Sí,Sí,No,2026-06-20,S-NTX (no tifoidea)
+CV-027,Confirmado,M,29,Nuevo Horizonte,2026-06-16,2026-06-15,Sí,Cerveza en lata,Sí,Postres Nube,Sí,No,Limitado,Sí,No,Sí,No,Sí,Sí,2026-06-16,S-NTX (no tifoidea)
+CV-028,Probable,M,29,San Gerónimo del Mar,2026-06-16,2026-06-13,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla,No,No,Adecuado,Sí,Sí,Sí,No,Sí,No,,
+CV-029,Confirmado,F,38,Nuevo Horizonte,2026-06-16,2026-06-14; 2026-06-15; 2026-06-16,Sí,Bebida sin alcohol en lata,No,,Sí,No,Limitado,Sí,No,Sí,No,No,No,2026-06-19,S-NTX (no tifoidea)
+CV-030,Probable,M,34,San Gerónimo del Mar,2026-06-17,2026-06-13; 2026-06-15; 2026-06-16,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,Sí,No,Limitado,Sí,Sí,No,No,No,No,,
+CV-031,Probable,F,48,Nuevo Horizonte,2026-06-16,2026-06-15,Sí,Cerveza en lata,Sí,Tacos El Puerto,Sí,Sí,Limitado,Sí,Sí,No,No,No,No,,
+CV-032,Confirmado,M,41,Nuevo Horizonte,2026-06-18,2026-06-14; 2026-06-16,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,Sí,No,Limitado,Sí,Sí,Sí,No,Sí,No,2026-06-19,S-NTX (no tifoidea)
+CV-033,Confirmado,F,22,Pampa Azul,2026-06-17,2026-06-15; 2026-06-16,Sí,Cerveza en lata,No,,Sí,No,Limitado,Sí,Sí,Sí,No,No,No,2026-06-20,S-NTX (no tifoidea)
+CV-034,Probable,M,37,Santa Alondra,2026-06-16,2026-06-14; 2026-06-15,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla,Sí,No,Limitado,Sí,No,Sí,No,Sí,No,,
+CV-035,Probable,M,24,Villa Mirador,2026-06-18,2026-06-13; 2026-06-14; 2026-06-16,Sí,Cerveza en lata,No,,Sí,No,Adecuado,Sí,No,Sí,No,Sí,No,,
+CV-036,Probable,F,42,San Gerónimo del Mar,2026-06-18,2026-06-16,Sí,Cerveza en lata,Sí,Chifa Rápido; Anticuchos Don Lucho,No,Sí,Adecuado,Sí,No,Sí,No,Sí,No,,
+CV-037,Probable,M,32,San Gerónimo del Mar,2026-06-14,2026-06-12,Sí,Cerveza en lata,No,,Sí,Sí,Limitado,Sí,Sí,No,No,Sí,No,,
+CV-038,Probable,M,39,Pampa Azul,2026-06-13,2026-06-13,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho; Postres Nube,Sí,No,Limitado,Sí,Sí,No,No,No,No,,
+CV-039,Confirmado,M,51,Villa Mirador,2026-06-17,2026-06-15,Sí,Cerveza en lata,Sí,Chifa Rápido,Sí,No,Limitado,Sí,Sí,Sí,No,No,No,2026-06-19,S-NTX (no tifoidea)
+CV-040,Probable,F,54,Pampa Azul,2026-06-16,2026-06-14; 2026-06-15,Sí,Cerveza en lata,No,,Sí,No,Limitado,Sí,Sí,No,No,Sí,No,,
+CV-041,Confirmado,M,50,Villa Mirador,2026-06-17,2026-06-15,Sí,Cerveza en lata,Sí,Postres Nube; Anticuchos Don Lucho,No,No,Limitado,Sí,No,No,No,Sí,No,2026-06-19,S-NTX (no tifoidea)
+CV-042,Probable,M,48,Nuevo Horizonte,2026-06-16,2026-06-15,Sí,Cerveza en lata,Sí,Postres Nube,Sí,No,Adecuado,Sí,No,No,No,Sí,No,,
+CV-043,Confirmado,M,32,Nuevo Horizonte,2026-06-18,2026-06-13; 2026-06-14; 2026-06-16,Sí,Bebida sin alcohol en lata,No,,Sí,No,Limitado,Sí,Sí,Sí,No,Sí,No,2026-06-19,S-NTX (no tifoidea)
+CV-044,Confirmado,M,37,San Gerónimo del Mar,2026-06-18,2026-06-15; 2026-06-16,Sí,Cerveza en lata,No,,Sí,No,Adecuado,Sí,No,Sí,No,No,No,2026-06-21,S-NTX (no tifoidea)
+CV-045,Probable,M,46,Villa Mirador,2026-06-15,2026-06-14,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla,Sí,No,Adecuado,Sí,No,No,No,Sí,No,,
+CV-046,Confirmado,F,46,Villa Mirador,2026-06-18,2026-06-12; 2026-06-16,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,Sí,Sí,Limitado,Sí,No,No,No,Sí,No,2026-06-20,S-NTX (no tifoidea)
+CV-047,Probable,M,39,Santa Alondra,2026-06-18,2026-06-14; 2026-06-15; 2026-06-16,Sí,Cerveza en lata,Sí,Postres Nube; Anticuchos Don Lucho,Sí,No,Adecuado,Sí,No,No,No,Sí,No,,
+CV-048,Probable,F,20,San Gerónimo del Mar,2026-06-18,2026-06-14; 2026-06-15; 2026-06-16,Sí,Cerveza en lata,Sí,Hamburguesas La Parrilla; Anticuchos Don Lucho,No,Sí,Limitado,Sí,Sí,No,No,No,No,,
+CV-049,Confirmado,M,36,Santa Alondra,2026-06-14,2026-06-14,Sí,Cerveza en lata,Sí,Chifa Rápido,No,No,Limitado,Sí,Sí,No,No,No,No,2026-06-15,S-NTX (no tifoidea)
+CV-050,Probable,M,43,Pampa Azul,2026-06-16,2026-06-14,Sí,Cerveza en lata,No,,Sí,Sí,Limitado,Sí,No,Sí,No,No,No,,
+CV-051,Confirmado,M,36,Villa Mirador,2026-06-15,2026-06-14,Sí,Cerveza en lata,No,,Sí,No,Adecuado,Sí,No,No,No,No,No,2026-06-18,S-NTX (no tifoidea)
+CV-052,Confirmado,M,50,Nuevo Horizonte,2026-06-18,2026-06-16,Sí,Bebida sin alcohol en lata,Sí,Hamburguesas La Parrilla; Ceviches MarAdentro,Sí,No,Limitado,Sí,No,Sí,No,Sí,No,2026-06-19,S-NTX (no tifoidea)
+CV-053,Confirmado,M,38,Pampa Azul,2026-06-15,2026-06-12; 2026-06-13; 2026-06-15,Sí,Cerveza en lata,Sí,Tacos El Puerto; Anticuchos Don Lucho,Sí,No,Adecuado,Sí,Sí,Sí,No,Sí,No,2026-06-16,S-NTX (no tifoidea)
+CV-054,Probable,M,28,Pampa Azul,2026-06-16,2026-06-14,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,No,No,Adecuado,Sí,Sí,No,No,No,No,,
+CV-055,Probable,F,36,San Gerónimo del Mar,2026-06-15,2026-06-14,Sí,Cerveza en lata,Sí,Postres Nube,Sí,No,Limitado,Sí,No,Sí,No,No,No,,
+CV-056,Confirmado,M,52,Santa Alondra,2026-06-17,2026-06-13; 2026-06-15,Sí,Bebida sin alcohol en lata,No,,Sí,No,Adecuado,Sí,No,Sí,No,No,No,2026-06-18,S-NTX (no tifoidea)
+CV-057,Confirmado,M,31,San Gerónimo del Mar,2026-06-16,2026-06-13; 2026-06-14,Sí,Cerveza en lata,Sí,Chifa Rápido,No,No,Limitado,Sí,No,No,No,No,No,2026-06-17,S-NTX (no tifoidea)
+CV-058,Probable,F,39,Pampa Azul,2026-06-17,2026-06-12; 2026-06-15,Sí,Cerveza en lata,No,,Sí,Sí,Limitado,Sí,Sí,No,No,No,No,,
+CV-059,Confirmado,M,47,Villa Mirador,2026-06-14,2026-06-12,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,Sí,No,Limitado,Sí,No,No,No,No,No,2026-06-15,S-NTX (no tifoidea)
+CV-060,Probable,F,41,Nuevo Horizonte,2026-06-12,2026-06-12,Sí,Cerveza en lata,No,,Sí,No,Limitado,Sí,No,No,No,No,No,,
+CV-061,Probable,M,50,Pampa Azul,2026-06-16,2026-06-12; 2026-06-15,Sí,Bebida sin alcohol en lata,No,,Sí,No,Limitado,Sí,No,No,No,No,No,,
+CV-062,Confirmado,M,30,San Gerónimo del Mar,2026-06-15,2026-06-15,Sí,Bebida sin alcohol en lata,No,,No,No,Limitado,Sí,No,No,No,No,No,2026-06-18,S-NTX (no tifoidea)
+CV-063,Probable,M,35,Nuevo Horizonte,2026-06-14,2026-06-13,Sí,Cerveza en lata,Sí,Ceviches MarAdentro,Sí,Sí,Limitado,Sí,Sí,Sí,No,No,No,,
+CV-064,Confirmado,M,29,San Gerónimo del Mar,2026-06-18,2026-06-12; 2026-06-14; 2026-06-16,Sí,Cerveza en lata,Sí,Anticuchos Don Lucho,No,Sí,Adecuado,Sí,Sí,No,No,Sí,No,2026-06-19,S-NTX (no tifoidea)
+CV-065,Confirmado,M,44,Villa Mirador,2026-06-17,2026-06-15,Sí,Cerveza en lata,No,,Sí,No,Limitado,Sí,Sí,Sí,No,No,No,2026-06-19,S-NTX (no tifoidea)

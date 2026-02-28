@@ -1,0 +1,426 @@
+{
+  "mode": "individual",
+  "hours_budget": 60,
+  "setting": {
+    "event_name": "Festival Costa Viva",
+    "event_dates": [
+      "2026-06-12",
+      "2026-06-13",
+      "2026-06-14",
+      "2026-06-15",
+      "2026-06-16"
+    ],
+    "districts": [
+      "Santa Alondra",
+      "Villa Mirador",
+      "Pampa Azul",
+      "San Gerónimo del Mar",
+      "Nuevo Horizonte"
+    ]
+  },
+  "phases": [
+    {
+      "phase_id": 1,
+      "title": "Alerta y verificación",
+      "goal": "Verificar si hay brote y definir casos (sospechoso/probable/confirmado).",
+      "unlock": {
+        "type": "always"
+      },
+      "deliverable": "Definición de caso v1 + decisión de activar investigación (sí/no) con justificación (≤120 palabras).",
+      "success_criteria": {
+        "must_include": [
+          "asistencia al evento",
+          "diarrea",
+          "ventana temporal 6–72h (o justificar rango plausible)",
+          "clasificación probable/confirmado"
+        ],
+        "must_decide": [
+          "activar_investigacion"
+        ]
+      },
+      "actions": [
+        {
+          "action_id": "P1_A1",
+          "name": "Crear definición de caso (plantilla guiada)",
+          "cost_HE": 5,
+          "unlocks": [
+            "clue_case_definition_template"
+          ],
+          "note": "Reduce penalidad por errores en definición."
+        },
+        {
+          "action_id": "P1_A2",
+          "name": "Solicitar linelist preliminar a clínicas (20 casos)",
+          "cost_HE": 12,
+          "unlocks": [
+            "clue_linelist_20"
+          ],
+          "note": "Permite iniciar descripción temprana."
+        },
+        {
+          "action_id": "P1_A3",
+          "name": "Llamar a la organización del evento (mapa y contactos)",
+          "cost_HE": 8,
+          "unlocks": [
+            "clue_event_map",
+            "clue_vendor_list",
+            "clue_beverage_tent_info"
+          ],
+          "note": "Introduce carpa/barra y logística."
+        },
+        {
+          "action_id": "P1_A4",
+          "name": "Solicitar confirmación y tipificación al laboratorio",
+          "cost_HE": 10,
+          "unlocks": [
+            "clue_lab_report"
+          ],
+          "note": "Confirma agente compatible con Salmonella no tifoidea S-NTX."
+        },
+        {
+          "action_id": "P1_A5",
+          "name": "Revisar redes sociales (ruido + 1 pista útil)",
+          "cost_HE": 8,
+          "unlocks": [
+            "clue_social_media"
+          ],
+          "note": "Puede distraer: incluye un falso positivo."
+        }
+      ],
+      "hints": [
+        {
+          "trigger": "stuck_2_actions",
+          "level": "soft",
+          "text": "Antes de buscar culpables, define qué vas a contar como caso y desde cuándo."
+        },
+        {
+          "trigger": "stuck_3_actions",
+          "level": "direct",
+          "text": "Prioriza definición de caso + linelist; el evento ya terminó y el tiempo es limitado."
+        }
+      ]
+    },
+    {
+      "phase_id": 2,
+      "title": "Descripción por tiempo, lugar y persona",
+      "goal": "Construir la curva epidémica, describir distribución geográfica y perfil de casos.",
+      "unlock": {
+        "type": "requires_actions",
+        "any_of": [
+          "P1_A2",
+          "P1_A4"
+        ]
+      },
+      "deliverable": "Resumen descriptivo (≤200 palabras) + 2 hipótesis priorizadas.",
+      "success_criteria": {
+        "must_include": [
+          "pico en curva",
+          "fuente común (hipótesis)",
+          "incubación plausible",
+          "distritos múltiples"
+        ]
+      },
+      "actions": [
+        {
+          "action_id": "P2_A1",
+          "name": "Ver curva epidémica (epi_curve.csv)",
+          "cost_HE": 5,
+          "unlocks": [
+            "clue_epi_curve"
+          ]
+        },
+        {
+          "action_id": "P2_A2",
+          "name": "Ver mapa por distritos (district_counts.csv)",
+          "cost_HE": 5,
+          "unlocks": [
+            "clue_district_counts"
+          ]
+        },
+        {
+          "action_id": "P2_A3",
+          "name": "Tablas edad/sexo y severidad",
+          "cost_HE": 6,
+          "unlocks": [
+            "clue_demographics"
+          ]
+        },
+        {
+          "action_id": "P2_A4",
+          "name": "Depuración del linelist (duplicados/fechas)",
+          "cost_HE": 8,
+          "unlocks": [
+            "clue_data_cleaning_report"
+          ],
+          "note": "Mejora puntaje por calidad."
+        },
+        {
+          "action_id": "P2_A5",
+          "name": "Entrevistas rápidas (n=8) a casos nuevos",
+          "cost_HE": 10,
+          "unlocks": [
+            "clue_quick_interviews_round1"
+          ],
+          "note": "Introduce pistas sobre carpa/barra y heterogeneidad de comida."
+        }
+      ],
+      "hints": [
+        {
+          "trigger": "no_epi_curve_after_2_actions",
+          "level": "soft",
+          "text": "Sin curva epidémica es difícil inferir incubación y tipo de exposición."
+        },
+        {
+          "trigger": "no_epi_curve_after_3_actions",
+          "level": "direct",
+          "text": "Abre la curva epidémica y busca si parece exposición puntual (pico) o sostenida."
+        }
+      ]
+    },
+    {
+      "phase_id": 3,
+      "title": "Hipótesis y análisis rápido",
+      "goal": "Seleccionar diseño analítico y cuantificar asociación con exposiciones clave.",
+      "unlock": {
+        "type": "requires_actions",
+        "any_of": [
+          "P2_A5",
+          "P2_A1"
+        ]
+      },
+      "deliverable": "Registrar cálculo 2x2 (a,b,c,d) + OR (con corrección si aplica) + interpretación + exposición principal.",
+      "success_criteria": {
+        "must_include": [
+          "a,b,c,d",
+          "OR",
+          "interpretación",
+          "exposición principal (carpa/barra)"
+        ],
+        "avoid": [
+          "culpar puesto de comida único sin evidencia"
+        ],
+        "requires_action": "P3_A3"
+      },
+      "actions": [
+        {
+          "action_id": "P3_A1",
+          "name": "Revisar resumen de exposiciones en casos (exposure_summary_cases.csv)",
+          "cost_HE": 6,
+          "unlocks": [
+            "clue_exposure_summary_cases"
+          ]
+        },
+        {
+          "action_id": "P3_A2",
+          "name": "Abrir encuesta casos-controles (attendee_survey_cases_controls.csv)",
+          "cost_HE": 12,
+          "unlocks": [
+            "clue_attendee_survey"
+          ]
+        },
+        {
+          "action_id": "P3_A3",
+          "name": "Calculadora 2x2 integrada (OR + IC aproximado)",
+          "cost_HE": 6,
+          "unlocks": [
+            "tool_2x2_calculator"
+          ],
+          "requires": [
+            "P3_A2"
+          ]
+        },
+        {
+          "action_id": "P3_A4",
+          "name": "Pedir segunda ronda de entrevistas enfocadas en 'barra/cooler' (n=10)",
+          "cost_HE": 10,
+          "unlocks": [
+            "clue_quick_interviews_round2"
+          ]
+        },
+        {
+          "action_id": "P3_A5",
+          "name": "Intentar rastrear un 'puesto de comida sospechoso' (callejón sin salida)",
+          "cost_HE": 12,
+          "unlocks": [
+            "clue_red_herring_food_vendor"
+          ],
+          "note": "Penalidad por ruido si lo eliges temprano."
+        }
+      ],
+      "hints": [
+        {
+          "trigger": "chose_red_herring",
+          "level": "soft",
+          "text": "Si los casos comieron en lugares distintos, quizá el problema no sea un plato específico sino un proceso compartido."
+        },
+        {
+          "trigger": "no_2x2_after_3_actions",
+          "level": "direct",
+          "text": "Usa casos y controles para probar 'carpa/barra' como exposición. Calcula la 2x2."
+        }
+      ]
+    },
+    {
+      "phase_id": 4,
+      "title": "Investigación operativa/ambiental (sin muestras)",
+      "goal": "Reconstruir prácticas y proponer un mecanismo plausible sin muestras ambientales.",
+      "unlock": {
+        "type": "requires_actions",
+        "any_of": [
+          "P3_A4",
+          "P3_A2"
+        ]
+      },
+      "deliverable": "Diagrama causal (texto en 5–7 pasos) + lista de medidas inmediatas.",
+      "success_criteria": {
+        "must_include": [
+          "contaminación secundaria",
+          "hielo/agua de deshielo",
+          "mano-boca",
+          "sin muestras (limitación)"
+        ]
+      },
+      "actions": [
+        {
+          "action_id": "P4_A1",
+          "name": "Recorrido virtual del montaje (cooler, hielo, flujo de trabajo)",
+          "cost_HE": 8,
+          "unlocks": [
+            "clue_virtual_walkthrough"
+          ]
+        },
+        {
+          "action_id": "P4_A2",
+          "name": "Entrevista al proveedor de hielo (trazabilidad y controles)",
+          "cost_HE": 8,
+          "unlocks": [
+            "clue_ice_supplier_interview"
+          ]
+        },
+        {
+          "action_id": "P4_A3",
+          "name": "Auditoría de baños/estaciones de lavado (checklist)",
+          "cost_HE": 6,
+          "unlocks": [
+            "clue_hand_hygiene_audit"
+          ]
+        },
+        {
+          "action_id": "P4_A4",
+          "name": "Consulta a 'IA asistente' (genera hipótesis)",
+          "cost_HE": 4,
+          "unlocks": [
+            "tool_ai_assistant"
+          ],
+          "note": "Puede alucinar; requiere verificación."
+        }
+      ],
+      "hints": [
+        {
+          "trigger": "stuck_2_actions",
+          "level": "soft",
+          "text": "Si no hay muestras, la fuerza está en la coherencia entre patrón epi y prácticas observadas."
+        },
+        {
+          "trigger": "stuck_3_actions",
+          "level": "direct",
+          "text": "Conecta: higiene limitada → manos/hielo/agua de deshielo → superficie de latas → mano‑boca."
+        }
+      ]
+    },
+    {
+      "phase_id": 5,
+      "title": "Control, comunicación y reflexión (incluye IA)",
+      "goal": "Traducir evidencia en medidas, comunicación y aprendizaje metacognitivo.",
+      "unlock": {
+        "type": "requires_actions",
+        "any_of": [
+          "P4_A1"
+        ]
+      },
+      "deliverable": "Plan de control (10 bullets) + comunicado breve + reflexión IA (6 preguntas).",
+      "success_criteria": {
+        "must_include": [
+          "separar hielo para consumo",
+          "contenedor grado alimentario con drenaje",
+          "sanitización",
+          "lavamanos",
+          "comunicación sin culpar sin evidencia",
+          "uso responsable de IA"
+        ]
+      },
+      "actions": [
+        {
+          "action_id": "P5_A1",
+          "name": "Generar plan de control (plantilla)",
+          "cost_HE": 10,
+          "unlocks": [
+            "tool_control_plan_template"
+          ]
+        },
+        {
+          "action_id": "P5_A2",
+          "name": "Redactar comunicado de riesgo (plantilla)",
+          "cost_HE": 8,
+          "unlocks": [
+            "tool_risk_comms_template"
+          ]
+        },
+        {
+          "action_id": "P5_A3",
+          "name": "Escribir protocolo de uso responsable de IA (plantilla)",
+          "cost_HE": 6,
+          "unlocks": [
+            "tool_ai_policy_template"
+          ]
+        }
+      ],
+      "hints": [
+        {
+          "trigger": "missing_controls",
+          "level": "soft",
+          "text": "Piensa en controles de ingeniería, procesos, y entrenamiento, no solo mensajes."
+        },
+        {
+          "trigger": "missing_ai_reflection",
+          "level": "direct",
+          "text": "Define: qué tareas delegas a IA, cómo verificas, y qué nunca debes hacer (p.ej., inventar evidencia)."
+        }
+      ]
+    }
+  ],
+  "clues": [
+    "clue_case_definition_template",
+    "clue_linelist_20",
+    "clue_event_map",
+    "clue_vendor_list",
+    "clue_beverage_tent_info",
+    "clue_lab_report",
+    "clue_social_media",
+    "clue_epi_curve",
+    "clue_district_counts",
+    "clue_demographics",
+    "clue_data_cleaning_report",
+    "clue_quick_interviews_round1",
+    "clue_exposure_summary_cases",
+    "clue_attendee_survey",
+    "tool_2x2_calculator",
+    "clue_quick_interviews_round2",
+    "clue_red_herring_food_vendor",
+    "clue_virtual_walkthrough",
+    "clue_ice_supplier_interview",
+    "clue_hand_hygiene_audit",
+    "tool_ai_assistant",
+    "tool_control_plan_template",
+    "tool_risk_comms_template",
+    "tool_ai_policy_template"
+  ],
+  "files": {
+    "linelist_cases_csv": "data/linelist_cases.csv",
+    "epi_curve_csv": "data/epi_curve.csv",
+    "district_counts_csv": "data/district_counts.csv",
+    "exposure_summary_cases_csv": "data/exposure_summary_cases.csv",
+    "attendee_survey_cases_controls_csv": "data/attendee_survey_cases_controls.csv",
+    "two_by_two_csv": "data/2x2_beverage_tent.csv"
+  }
+}
