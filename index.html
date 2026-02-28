@@ -5,15 +5,19 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>BroteGastro – Juego (demo)</title>
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 16px;line-height:1.4}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 16px;line-height:1.45}
     .card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:14px 0}
     code{background:#f6f6f6;padding:2px 6px;border-radius:6px}
     a{color:#0b5fff}
+    select,button{font-size:16px;padding:8px 10px}
+    button{cursor:pointer}
+    pre{background:#0b1020;color:#e8eefc;padding:12px;border-radius:12px;overflow:auto}
+    .muted{color:#666}
   </style>
 </head>
 <body>
   <h1>BroteGastro – Modo individual (v3)</h1>
-  <p>Demo público del caso (ficcional) y datasets para el juego de investigación de brotes.</p>
+  <p class="muted">Demo público del caso (ficcional) y datasets para el juego de investigación de brotes.</p>
 
   <div class="card">
     <h2>Archivos del juego</h2>
@@ -39,8 +43,132 @@
   </div>
 
   <div class="card">
-    <h2>Siguiente paso</h2>
-    <p>Cuando la app esté lista (React/Vite u otra), se reemplaza esta página por la interfaz y se mantiene la carpeta <code>data/</code>.</p>
+    <h2>Prueba en línea: Calculadora 2x2 (casos vs controles)</h2>
+    <p>Esto lee <code>data/attendee_survey_cases_controls.csv</code> y calcula OR con corrección si hay ceros (Haldane–Anscombe).</p>
+
+    <label for="exp"><strong>Exposición:</strong></label>
+    <select id="exp">
+      <option value="beverage_tent_consumption|Sí">Carpa/barra (beverage_tent_consumption = Sí)</option>
+      <option value="ate_food_at_event|Sí">Comió en el evento (ate_food_at_event = Sí)</option>
+      <option value="used_portable_toilets|Sí">Usó baños portátiles (used_portable_toilets = Sí)</option>
+      <option value="vip_wristband_area|Sí">Área VIP (vip_wristband_area = Sí)</option>
+      <option value="handwashing_access|Limitado">Lavado de manos limitado (handwashing_access = Limitado)</option>
+    </select>
+
+    <button id="run" style="margin-left:10px;">Calcular</button>
+    <button id="check" style="margin-left:6px;">Comparar con esperado</button>
+
+    <pre id="out" style="margin-top:12px;white-space:pre-wrap;">Listo. Elige una exposición y presiona “Calcular”.</pre>
   </div>
+
+<script>
+async function fetchText(url){
+  const r = await fetch(url);
+  if(!r.ok) throw new Error("No se pudo cargar: " + url + " (" + r.status + ")");
+  return await r.text();
+}
+async function fetchJSON(url){
+  const r = await fetch(url);
+  if(!r.ok) throw new Error("No se pudo cargar: " + url + " (" + r.status + ")");
+  return await r.json();
+}
+function parseCSV(text){
+  const lines = text.trim().split(/\r?\n/);
+  const header = lines[0].split(",");
+  return lines.slice(1).map(line=>{
+    const cols = line.split(",");
+    const obj = {};
+    header.forEach((h,i)=>obj[h]= (cols[i] ?? "").replace(/^"|"$/g,""));
+    return obj;
+  });
+}
+function twoByTwo(rows, exposureCol, exposedVal){
+  let a=0,b=0,c=0,d=0;
+  for(const r of rows){
+    const isCase = r.case_status === "Caso";
+    const exposed = (r[exposureCol] === exposedVal);
+    if(isCase && exposed) a++;
+    if(isCase && !exposed) b++;
+    if(!isCase && exposed) c++;
+    if(!isCase && !exposed) d++;
+  }
+  return {a,b,c,d};
+}
+function orWithCI(a,b,c,d){
+  let aa=a, bb=b, cc=c, dd=d;
+  const correction = (Math.min(a,b,c,d)===0);
+  if(correction){
+    aa=a+0.5; bb=b+0.5; cc=c+0.5; dd=d+0.5;
+  }
+  const OR = (aa*dd)/(bb*cc);
+  const se = Math.sqrt(1/aa + 1/bb + 1/cc + 1/dd);
+  const lcl = Math.exp(Math.log(OR) - 1.96*se);
+  const ucl = Math.exp(Math.log(OR) + 1.96*se);
+  return {OR, lcl, ucl, correction};
+}
+function formatResult(expCol, expVal, a,b,c,d, OR,lcl,ucl, correction){
+  return (
+    `Exposición: ${expCol} == "${expVal}"\n` +
+    `2x2 (Caso/Control x Expuesto/No expuesto)\n` +
+    `a (casos expuestos): ${a}\n` +
+    `b (casos no expuestos): ${b}\n` +
+    `c (controles expuestos): ${c}\n` +
+    `d (controles no expuestos): ${d}\n\n` +
+    `OR${correction ? " (corr. Haldane–Anscombe)" : ""}: ${OR.toFixed(2)}\n` +
+    `IC95%: [${lcl.toFixed(2)}, ${ucl.toFixed(2)}]\n`
+  );
+}
+let cachedRows = null;
+async function loadRowsOnce(){
+  if(cachedRows) return cachedRows;
+  const csv = await fetchText("./data/attendee_survey_cases_controls.csv");
+  cachedRows = parseCSV(csv);
+  return cachedRows;
+}
+document.getElementById("run").addEventListener("click", async ()=>{
+  const out = document.getElementById("out");
+  out.textContent = "Calculando...";
+  try{
+    const rows = await loadRowsOnce();
+    const [expCol, expVal] = document.getElementById("exp").value.split("|");
+    const {a,b,c,d} = twoByTwo(rows, expCol, expVal);
+    const {OR,lcl,ucl,correction} = orWithCI(a,b,c,d);
+    out.textContent = formatResult(expCol, expVal, a,b,c,d, OR,lcl,ucl, correction);
+  }catch(e){
+    out.textContent = "Error: " + e.message;
+  }
+});
+document.getElementById("check").addEventListener("click", async ()=>{
+  const out = document.getElementById("out");
+  out.textContent = "Comparando con esperado...";
+  try{
+    const rows = await loadRowsOnce();
+    const expected = await fetchJSON("./expected_2x2_results.json");
+    const [expCol, expVal] = document.getElementById("exp").value.split("|");
+    const {a,b,c,d} = twoByTwo(rows, expCol, expVal);
+    const {OR,lcl,ucl,correction} = orWithCI(a,b,c,d);
+    const exp = expected.find(e => e.exposure_col === expCol && e.exposed_value === expVal);
+    if(!exp) throw new Error("No hay valor esperado para esa exposición.");
+    const ORexp = exp.odds_ratio_HA;
+    const tol = 0.10;
+    const okOR = Math.abs(OR - ORexp) / ORexp <= tol;
+    const okTable =
+      a === exp.table.a_cases_exposed &&
+      b === exp.table.b_cases_unexposed &&
+      c === exp.table.c_controls_exposed &&
+      d === exp.table.d_controls_unexposed;
+
+    out.textContent =
+      formatResult(expCol, expVal, a,b,c,d, OR,lcl,ucl, correction) +
+      "\n--- Validación vs esperado ---\n" +
+      `Tabla 2x2 coincide: ${okTable ? "SÍ ✅" : "NO ❌"}\n` +
+      `OR esperado (HA): ${ORexp.toFixed(2)}\n` +
+      `OR dentro de ±10%: ${okOR ? "SÍ ✅" : "NO ❌"}\n`;
+  }catch(e){
+    out.textContent = "Error: " + e.message;
+  }
+});
+</script>
+
 </body>
 </html>
